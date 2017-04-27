@@ -177,7 +177,6 @@ export class DataService {
 
         if (err.status === 0) {
             console.log('DataService: handleError: no internet connection');
-            alert('No internet connection or server is down');
             return Promise.reject('No internet connection');
         }
 
@@ -228,7 +227,6 @@ export class DataService {
             error = `${err.status} ${err.statusText}: ${error}`;
 
             console.error('DataService: handleError: other error:', error);
-            alert(error);
             return Promise.reject(error);
         }
 
