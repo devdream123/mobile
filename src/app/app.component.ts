@@ -8,6 +8,7 @@ import { DataService } from '../services/DataService';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
+declare var FCMPlugin: any;
 @Component({
     templateUrl: 'app.html'
 })
@@ -49,7 +50,8 @@ export class MyApp {
     }
 
     private mockForBrowser() {
-        FCMPlugin.getToken = (success, failure) => success('browser-token-' + Math.floor(Math.random() * (1 << 30) + (1 << 30))).then((res) => console.log('res token ', res))
-        FCMPlugin.onNotification = (push, success, failure) => success('Mocked FCMPlugin OK');
+        console.log('Mock firebase initializing...');
+        // FCMPlugin.getToken = (success, failure) => success('browser-token-' + Math.floor(Math.random() * (1 << 30) + (1 << 30)));
+        // FCMPlugin.onNotification = (push, success, failure) => success('Mocked FCMPlugin OK');
     }
 }

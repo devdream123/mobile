@@ -1,4 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -11,8 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { PushService } from '../services/PushService';
-import { DataService } from '../services/DataService';
+import { PushService, DataService, Enviroment } from '../services';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { DataService } from '../services/DataService';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -39,6 +40,7 @@ import { DataService } from '../services/DataService';
     SplashScreen,
     PushService,
     DataService,
+    Enviroment,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

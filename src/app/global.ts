@@ -1,1 +1,1 @@
-declare let FCMPlugin: FCMPlugin;
+declare let FCMPlugin: any;
