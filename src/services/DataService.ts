@@ -155,8 +155,8 @@ export class DataService {
      */
     login(username: string, password: string) {
         let postData = {
-            username: 'SzymonBury',
-            password: '1234'
+            username: '', // provide credencials hardcoded
+            password: ''
         }
 
         return this.postData('auth/jwt/', {}, postData, false);
