@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { DataService } from '../../services';
+import { DataService, ShareService } from '../../services';
 
 @Component({
     selector: 'page-home',
@@ -11,7 +11,8 @@ export class HomePage {
 
     constructor(
         private navCtrl: NavController,
-        private dataService: DataService
+        private dataService: DataService,
+        private shareService: ShareService
     ) {
 
     }
@@ -21,9 +22,12 @@ export class HomePage {
     }
 
     login() {
-        this.dataService.login('das', 'das')
-            .then(res => console.log('res', res))
-            .catch(err => console.log('err', err));
+        this.dataService.login('username', 'password')
+            .then(res => {
+                console.log('Logged with token: ', res);
+                this.shareService.setAuthToken(res.token);
+            })
+            .catch(err => console.log('Login error: ', err));
     }
 
     games() {

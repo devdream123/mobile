@@ -5,3 +5,7 @@ export interface ApiResponse<T> {
     msg?: string;
     errors?: any;
 }
+
+export interface UserLoginResponse {
+    token: string;
+}

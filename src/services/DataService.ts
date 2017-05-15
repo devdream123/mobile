@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular/http';
 
-import { Enviroment } from './Enviroment';
+import { Enviroment, ShareService } from './';
 
-import { StoredUser, ApiResponse } from '../models';
+import { StoredUser, ApiResponse, UserLoginResponse } from '../models';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -20,6 +20,7 @@ export class DataService {
     constructor(
         private platform: Platform,
         private http: Http,
+        private shareService: ShareService,
         env: Enviroment
     ) {
 
@@ -50,15 +51,20 @@ export class DataService {
         // headers.append('Authorization', 'Basic ' + btoa(this.env.basic.username + ':' + this.env.basic.password));
 
         if (withToken) {
-            if (!this.loggedUser) {
-                console.error('DataService: createHeaders: ERROR! USER IS NOT AVAILABLE!');
-            }
+            // if (!this.loggedUser) {
+            //     console.error('DataService: createHeaders: ERROR! USER IS NOT AVAILABLE!');
+            // }
 
-            let token = this.loggedUser.token;
+            // let token = this.loggedUser.token;
 
-            headers.append('AuthorizationJwt', 'Bearer ' + token);
+            let token = this.shareService.getAuthToken();
+
+            console.log('Create headers with token: ', token);
+
+            headers.append('Authorization', 'Bearer ' + token);
         }
 
+        console.log('Prepared headers: ', headers);
         return headers;
     }
 
@@ -104,7 +110,7 @@ export class DataService {
         return this.http.request(realUrl, options)
             .toPromise()
             .catch(err => this.handleError(err))
-            .then(res => res.json());
+            .then(res => res.json())
             // .then((res: ApiResponse<T>) => res.data);
     }
 
@@ -153,10 +159,10 @@ export class DataService {
     /**
      * User login
      */
-    login(username: string, password: string) {
+    login(username: string, password: string): Promise<UserLoginResponse> {
         let postData = {
-            username: '', // provide credencials hardcoded
-            password: ''
+            username: username, // provide credencials hardcoded
+            password: password
         }
 
         return this.postData('auth/jwt/', {}, postData, false);
@@ -164,7 +170,7 @@ export class DataService {
 
     getGames(): Promise<any> {
 
-        return this.getData('games/', {}, false);
+        return this.getData('games/', {});
     }
 
 
