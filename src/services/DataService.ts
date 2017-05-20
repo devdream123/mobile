@@ -4,7 +4,7 @@ import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular
 
 import { Enviroment, ShareService } from './';
 
-import { StoredUser, ApiResponse, UserLoginResponse } from '../models';
+import { StoredUser, ApiResponse, UserLoginResponse, GamesList } from '../models';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -46,9 +46,11 @@ export class DataService {
     private createHeaders(withToken: boolean = true) {
         let headers = new Headers();
 
+
+        headers.append('Authorization', 'JWT ' + 'token');
+
         headers.append('Content-Type', 'application/json;charset=UTF-8');
         headers.append('Accept', 'application/json');
-        // headers.append('Authorization', 'Basic ' + btoa(this.env.basic.username + ':' + this.env.basic.password));
 
         if (withToken) {
             // if (!this.loggedUser) {
@@ -61,7 +63,6 @@ export class DataService {
 
             console.log('Create headers with token: ', token);
 
-            headers.append('Authorization', 'Bearer ' + token);
         }
 
         console.log('Prepared headers: ', headers);
@@ -111,7 +112,7 @@ export class DataService {
             .toPromise()
             .catch(err => this.handleError(err))
             .then(res => res.json())
-            // .then((res: ApiResponse<T>) => res.data);
+        // .then((res: ApiResponse<T>) => res.data);
     }
 
     /**
@@ -168,16 +169,16 @@ export class DataService {
         return this.postData('auth/jwt/', {}, postData, false);
     }
 
-    getGames(): Promise<any> {
+    getGames(): Promise<GamesList> {
 
-        return this.getData('games/', {});
+        return this.getData('games/', {}, true);
     }
 
 
-        /**
-     * Handle errors on API call
-     * @param err from http request
-     */
+    /**
+ * Handle errors on API call
+ * @param err from http request
+ */
     handleError(err): Promise<never> {
         console.warn('DataService: handleError: with: ', err);
 

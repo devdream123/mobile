@@ -18,8 +18,8 @@ export class Enviroment {
 
         return {
             basic: {
-                username: '',
-                password: ''
+                username: 'SzymonBury',
+                password: '1234'
             },
             api
         };
