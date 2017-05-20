@@ -1,19 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-  <button ion-button (click)="login()">Login</button>
-  <button ion-button (click)="games()">getGames</button>
+    <h2>Games list</h2>
+
+    <form *ngIf="!logged" class="login-form" [formGroup]="loginForm" (ngSubmit)="login()" method="post">
+        <ion-item>
+            <ion-label color="primary" floating>Username</ion-label>
+            <ion-input #username formControlName="username" type="text" (keyup.enter)="focusPasswordField()"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" floating>Password</ion-label>
+            <ion-input #password formControlName="password" type="password" (keyup.enter)="login()"></ion-input>
+        </ion-item>
+    </form>
+
+    <button *ngIf="!logged" ion-button (click)="login()">Login</button>
+
+    <ion-list class="games" *ngFor="let game of games">
+        <ion-item class="games__item" tappable>
+            {{game.id}}
+            <ion-row class="games__item--address">
+                {{game.location.address}}
+            </ion-row>
+        </ion-item>
+    </ion-list>
 </ion-content>

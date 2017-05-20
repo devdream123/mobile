@@ -46,9 +46,6 @@ export class DataService {
     private createHeaders(withToken: boolean = true) {
         let headers = new Headers();
 
-
-        headers.append('Authorization', 'JWT ' + 'token');
-
         headers.append('Content-Type', 'application/json;charset=UTF-8');
         headers.append('Accept', 'application/json');
 
@@ -56,13 +53,9 @@ export class DataService {
             // if (!this.loggedUser) {
             //     console.error('DataService: createHeaders: ERROR! USER IS NOT AVAILABLE!');
             // }
-
             // let token = this.loggedUser.token;
-
             let token = this.shareService.getAuthToken();
-
-            console.log('Create headers with token: ', token);
-
+            headers.append('Authorization', 'JWT ' + token);
         }
 
         console.log('Prepared headers: ', headers);
@@ -159,6 +152,8 @@ export class DataService {
 
     /**
      * User login
+     * @param username
+     * @param password
      */
     login(username: string, password: string): Promise<UserLoginResponse> {
         let postData = {
@@ -176,9 +171,9 @@ export class DataService {
 
 
     /**
- * Handle errors on API call
- * @param err from http request
- */
+     * Handle errors on API call
+     * @param err from http request
+     */
     handleError(err): Promise<never> {
         console.warn('DataService: handleError: with: ', err);
 
