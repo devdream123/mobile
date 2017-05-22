@@ -18,10 +18,10 @@
 <ion-row *ngIf="game">
     <h4>Players</h4>
 
-    <ion-item *ngFor="let player of game.players">
-        <img src="{{player.img}}" alt="avatar">
-        <span>{{player.first_name}}</span>
-        <span *ngIf="player.rsvp">RSVP<ion-icon name="check"></ion-icon></span>
+    <ion-item tappable class="player" *ngFor="let player of game.players">
+        <img class="player__img" src="{{player.img}}" alt="avatar">
+        <span class="player__name">{{player.first_name}}</span>
+        <span class="player__rsvp" *ngIf="player.rsvp">RSVP<ion-icon name="check"></ion-icon></span>
     </ion-item>
 </ion-row>
 
