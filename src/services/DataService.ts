@@ -50,10 +50,6 @@ export class DataService {
         headers.append('Accept', 'application/json');
 
         if (withToken) {
-            // if (!this.loggedUser) {
-            //     console.error('DataService: createHeaders: ERROR! USER IS NOT AVAILABLE!');
-            // }
-            // let token = this.loggedUser.token;
             let token = this.shareService.getAuthToken();
             headers.append('Authorization', 'JWT ' + token);
         }
@@ -68,21 +64,15 @@ export class DataService {
      * @param {Object} params    Optional parameters for url
      */
     private static createUrl(url: string, params: Object) {
-
         let newParams = [];
-
         for (let key in params) {
             let value = params[key];
-
             if (value === null) {
                 value = '';
             }
-
             newParams.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
         }
-
         let qs = newParams.join('&');
-
         return url + (qs.length ? '?' + qs : '');
     }
 
@@ -166,7 +156,12 @@ export class DataService {
 
     getGames(): Promise<GamesList> {
 
-        return this.getData('games/', {}, true);
+        return this.getData('games/', {});
+    }
+
+    getMyGames(): Promise<any> {
+
+        return this.getData('games/my', {})
     }
 
 

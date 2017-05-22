@@ -1,11 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            My games - <span *ngIf="RSVPamount">RSVP - {{RSVPamount}}</span>
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+    <ion-row class="game__list" *ngFor="let myGame of myGames">
+        <ion-item class="game__item" tappable>
+            <span class="game__item--title">Pickup game</span>
+            <span class="game__item--location">{{myGame.location.name}}</span>
+            <span class="game__item--location--name">{{myGame.location.address}}</span>
+        </ion-item>
+    </ion-row>
 
 </ion-content>
