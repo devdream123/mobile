@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Game
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<h1 *ngIf="game">{{game.datetime}}</h1>
+
+<ion-row *ngIf="game">
+    <h4>{{game.location.name}}</h4>
+    <h5>{{game.location.address}}</h5>
+</ion-row>
+
+<ion-row *ngIf="game">
+    <h4>Players</h4>
+
+    <ion-item *ngFor="let player of game.players">
+        <img src="{{player.img}}" alt="avatar">
+        <span>{{player.first_name}}</span>
+        <span *ngIf="player.rsvp">RSVP<ion-icon name="check"></ion-icon></span>
+    </ion-item>
+</ion-row>
+
+</ion-content>

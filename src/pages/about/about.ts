@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { DataService } from '../../services';
 import { RSVPGame } from '../../models';
 
+import { SingleGame } from '../games';
+
 @Component({
     selector: 'page-about',
     templateUrl: 'about.html'
@@ -26,6 +28,13 @@ export class AboutPage {
                 this.myGames = res.results;
                 this.RSVPamount = res.count;
             });
+    }
+
+    goToGame(id: number) {
+        console.log(id);
+        this.navCtrl.push(SingleGame, {
+            id: id
+        });
     }
 
 }

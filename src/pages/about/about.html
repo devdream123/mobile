@@ -9,7 +9,7 @@
 <ion-content padding>
 
     <ion-row class="game__list" *ngFor="let myGame of myGames">
-        <ion-item class="game__item" tappable>
+        <ion-item class="game__item" (click)="goToGame(myGame.id)" tappable>
             <span class="game__item--title">Pickup game</span>
             <span class="game__item--location">{{myGame.location.name}}</span>
             <span class="game__item--location--name">{{myGame.location.address}}</span>

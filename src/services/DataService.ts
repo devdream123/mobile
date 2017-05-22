@@ -50,7 +50,7 @@ export class DataService {
         headers.append('Accept', 'application/json');
 
         if (withToken) {
-            let token = this.shareService.getAuthToken();
+            let token = this.shareService.getAuthToken()
             headers.append('Authorization', 'JWT ' + token);
         }
 
@@ -159,9 +159,16 @@ export class DataService {
         return this.getData('games/', {});
     }
 
+    // todo model for my rsvp games
     getMyGames(): Promise<any> {
 
         return this.getData('games/my', {})
+    }
+
+    // todo model for specific game
+    getSpecificGame(id: number): Promise<any> {
+
+        return this.getData('games/' + id, {});
     }
 
 

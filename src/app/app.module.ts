@@ -10,6 +10,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { SingleGame } from '../pages/games';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -21,7 +23,8 @@ import { PushService, DataService, Enviroment, ShareService } from '../services'
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    SingleGame
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { PushService, DataService, Enviroment, ShareService } from '../services'
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    SingleGame
   ],
   providers: [
     StatusBar,

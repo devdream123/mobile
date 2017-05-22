@@ -31,3 +31,10 @@ export interface GameLocation {
     gis: number | null;
     name: string;
 }
+
+export interface SingleGameModel extends Game {
+    description: string;
+    duration: number | null;
+    organizer: any;
+    players: Array<any>;
+}
