@@ -10,6 +10,63 @@ page-home {
         }
     }
 
+    .rsvp-games {
+
+        display: flex;
+        position: relative;
+
+        &__next {
+            display: flex;
+            justify-content: center;
+            text-transform: uppercase;
+            width: 100%;
+            padding-top: 10pt;
+            font-size: 2em;
+        }
+
+        &__status {
+            display: flex;
+            position: absolute;
+            top: 10pt;
+            right: 0;
+            color: royalblue;
+        }
+
+        &__game {
+
+            display: flex;
+
+            .label {
+                flex-direction: column;
+            }
+
+            &__time {
+                display: flex;
+                justify-content: center;
+                text-transform: uppercase;
+                width: 100%;
+                font-size: 1em;
+            }
+
+            &__name {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                font-size: 1em;
+                flex-wrap: wrap;
+            }
+
+            &__location {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                font-size: .8em;
+                color: grey;
+                flex-wrap: wrap;
+            }
+        }
+    }
+
     .me {
 
         &__img {
@@ -26,12 +83,12 @@ page-home {
 
     .rsvp {
 
+        display: flex;
+        justify-content: center;
+
         .label {
             justify-content: center;
         }
-
-        display: flex;
-        justify-content: center;
 
         &__count {
             color: royalblue;

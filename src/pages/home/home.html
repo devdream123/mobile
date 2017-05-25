@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Home</ion-title>
+        <ion-title>GoodFoot</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -11,14 +11,25 @@
         <span class="me__name">{{user.first_name}} {{user.last_name}}</span>
     </ion-item>
 
-    <ion-item tappable *ngIf="rsvp" class="rsvp">
-        <span class="rsvp__count">2</span>
+    <ion-item tappable *ngIf="myGames" class="rsvp">
+        <span class="rsvp__count">{{RSVPamount}}</span>
         <span class="rsvp__text">Upcoming <br/> games</span>
     </ion-item>
 
+    <ion-row *ngIf="myGames.length > 0" class="rsvp-games">
+        <span class="rsvp-games__next">next game</span>
+            <span class="rsvp-games__status">IN</span>
+        <ion-item (click)="goToGame(myGames[0].id)" tappable class="rsvp-games__game">
+            <span class="rsvp-games__game__time">{{myGames[0].datetime}}</span>
+            <span class="rsvp-games__game__name">{{myGames[0].location.name}}</span>
+            <span class="rsvp-games__game__location">{{myGames[0].location.address}}</span>
+        </ion-item>
+    </ion-row>
+    <ion-row *ngIf="myGames.length === 0" class="rsvp-games">
+        <span class="rsvp-games__next">no upcoming games</span>
+    </ion-row>
+
     <h2>Games list</h2>
-
-
 
     <ion-list class="games" *ngFor="let game of games">
         <ion-item class="games__item" tappable>

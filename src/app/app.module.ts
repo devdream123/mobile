@@ -18,6 +18,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { PushService, DataService, Enviroment, ShareService } from '../services';
 
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -51,6 +54,7 @@ import { PushService, DataService, Enviroment, ShareService } from '../services'
     DataService,
     ShareService,
     Enviroment,
+    LocalNotifications,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

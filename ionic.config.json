@@ -1,11 +1,5 @@
 {
   "name": "mobile",
   "app_id": "",
-  "type": "ionic-angular",
-  "proxies": [
-    {
-      "path": "/api",
-      "proxyUrl": "https://dev.goodfoot.club/api"
-    }
-  ]
+  "type": "ionic-angular"
 }
