@@ -5,20 +5,20 @@
 </ion-header>
 
 <ion-content padding>
+
+    <ion-item tappable *ngIf="user" class="me">
+        <img class="me__img" src="{{user.img}}" alt="Me">
+        <span class="me__name">{{user.first_name}} {{user.last_name}}</span>
+    </ion-item>
+
+    <ion-item tappable *ngIf="rsvp" class="rsvp">
+        <span class="rsvp__count">2</span>
+        <span class="rsvp__text">Upcoming <br/> games</span>
+    </ion-item>
+
     <h2>Games list</h2>
 
-    <form *ngIf="!logged" class="login-form" [formGroup]="loginForm" (ngSubmit)="login()" method="post">
-        <ion-item>
-            <ion-label color="primary" floating>Username</ion-label>
-            <ion-input #username formControlName="username" type="text" (keyup.enter)="focusPasswordField()"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label color="primary" floating>Password</ion-label>
-            <ion-input #password formControlName="password" type="password" (keyup.enter)="login()"></ion-input>
-        </ion-item>
-    </form>
 
-    <button *ngIf="!logged" ion-button (click)="login()">Login</button>
 
     <ion-list class="games" *ngFor="let game of games">
         <ion-item class="games__item" tappable>

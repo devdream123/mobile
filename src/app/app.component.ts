@@ -1,28 +1,33 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { PushService } from '../services/PushService';
 import { DataService } from '../services/DataService';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
 
 declare var FCMPlugin: any;
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage: any = TabsPage;
+    rootPage: any = LoginPage;
 
     constructor(
         private platform: Platform,
         private statusBar: StatusBar,
         private splashScreen: SplashScreen,
         private pushService: PushService,
-        private dataService: DataService
+        private dataService: DataService,
+        private events: Events
     ) {
         this.platformReady();
+
+        this.events.subscribe('set_root', (r) => {
+            this.rootPage = r;
+        });
     }
 
 

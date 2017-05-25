@@ -4,7 +4,7 @@ import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular
 
 import { Enviroment, ShareService } from './';
 
-import { StoredUser, ApiResponse, UserLoginResponse, GamesList } from '../models';
+import { StoredUser, ApiResponse, UserLoginResponse, GamesList, User } from '../models';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -169,6 +169,11 @@ export class DataService {
     getSpecificGame(id: number): Promise<any> {
 
         return this.getData('games/' + id, {});
+    }
+
+    getUsersMe(): Promise<User> {
+
+        return this.getData('users/me', {});
     }
 
 

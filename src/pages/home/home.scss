@@ -2,11 +2,51 @@ page-home {
 
     .game {
 
-        &.__item {
+        &__item {
 
-            &.--address {
+            &--address {
 
             }
         }
+    }
+
+    .me {
+
+        &__img {
+            display: flex;
+            height: 6em;
+            border-radius: 50%;
+        }
+
+        &__name {
+            display: flex;
+            padding-left: 15pt;
+        }
+    }
+
+    .rsvp {
+
+        .label {
+            justify-content: center;
+        }
+
+        display: flex;
+        justify-content: center;
+
+        &__count {
+            color: royalblue;
+            font-size: 4em;
+        }
+
+        &__text {
+            text-transform: uppercase;
+            line-height: 2em;
+            padding-left: 5pt;
+        }
+    }
+
+    .label {
+        align-items: center;
+        display: flex;
     }
 }

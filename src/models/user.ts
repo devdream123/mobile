@@ -54,6 +54,8 @@ export interface User {
     managedTeams: Team[];
     games?: GameEvent[];
     phone?: string;
+
+
 }
 
 export interface StoredUser {
