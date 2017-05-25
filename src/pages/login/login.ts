@@ -1,12 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService, ShareService } from '../../services';
 
 import { TabsPage } from '../tabs/tabs';
 
-@IonicPage()
 @Component({
     selector: 'page-login',
     templateUrl: 'login.html',
