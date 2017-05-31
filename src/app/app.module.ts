@@ -10,7 +10,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { SingleGame } from '../pages/games';
+import { SingleGame, MyGamesList } from '../pages/games';
 import { LoginPage } from '../pages/login';
 import { InvitesList } from '../pages/invites';
 
@@ -30,6 +30,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     HomePage,
     TabsPage,
     SingleGame,
+    MyGamesList,
     LoginPage,
     InvitesList
   ],
@@ -47,6 +48,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     HomePage,
     TabsPage,
     SingleGame,
+    MyGamesList,
     LoginPage,
     InvitesList
   ],

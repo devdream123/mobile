@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { DataService, ShareService } from '../../services';
 import { Game, User } from '../../models';
-import { SingleGame } from '../games';
+import { SingleGame, MyGamesList } from '../games';
 
 @Component({
     selector: 'page-home',
@@ -52,6 +52,10 @@ export class HomePage implements OnInit {
         this.navCtrl.push(SingleGame, {
             id
         });
+    }
+
+    goToMyGamesList() {
+        this.navCtrl.push(MyGamesList);
     }
 
     getMe() {

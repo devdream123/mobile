@@ -6,9 +6,9 @@
 
 <ion-content padding>
 
-    <ion-item tappable *ngIf="user" class="me">
-        <img class="me__img" src="{{user.img}}" alt="Me">
-        <span class="me__name">{{user.first_name}} {{user.last_name}}</span>
+    <ion-item tappable class="me">
+        <img class="me__img" src="{{user?.img}}" alt="Me">
+        <span class="me__name">{{user?.first_name}} {{user?.last_name}}</span>
     </ion-item>
 
     <ion-item tappable *ngIf="user?.invites" class="rsvp">
@@ -16,7 +16,7 @@
         <span class="rsvp__text">Pending <br/> invitations</span>
     </ion-item>
 
-    <ion-item tappable *ngIf="myGames" class="rsvp">
+    <ion-item (click)="goToMyGamesList()" tappable *ngIf="myGames" class="rsvp">
         <span class="rsvp__count">{{RSVPamount}}</span>
         <span class="rsvp__text">Upcoming <br/> games</span>
     </ion-item>
