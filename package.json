@@ -1,7 +1,7 @@
 {
     "name": "good-foot-club-mobile",
     "author": "GFFC",
-    "homepage": "http://ionicframework.com/",
+    "homepage": "http://dev.goodfoot.club/",
     "private": true,
     "scripts": {
         "build": "ionic-app-scripts build",
@@ -27,7 +27,6 @@
         "@ionic-native/status-bar": "3.6.1",
         "@ionic/storage": "2.0.1",
         "cordova-android": "^6.2.2",
-        "cordova-plugin-app-event": "file:node_modules\\cordova-plugin-app-event",
         "cordova-plugin-console": "1.0.5",
         "cordova-plugin-device": "1.1.4",
         "cordova-plugin-fcm": "~2.1.1",
