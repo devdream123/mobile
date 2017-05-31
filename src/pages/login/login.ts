@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,7 +10,7 @@ import { TabsPage } from '../tabs/tabs';
     selector: 'page-login',
     templateUrl: 'login.html',
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
     @ViewChild('username') username: string;
     @ViewChild('password') password: string;
 
@@ -29,6 +29,16 @@ export class LoginPage {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
+    }
+
+    ngOnInit() {
+        let checkIfLogged = this.shareService.getAuthTokenFromStorage()
+            .then(token => token
+                ? this.shareService.setAuthToken(token)
+                : checkIfLogged.reject('User not logged')
+            )
+            .catch(err => console.log(err))
+            .then(() => this.events.publish('set_root', TabsPage));
     }
 
     login() {
