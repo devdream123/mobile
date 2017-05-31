@@ -34,30 +34,32 @@ export class HomePage implements OnInit {
     }
 
     getGames() {
-        return this.dataService.getGames()
+        return this.dataService.games.getAll()
             .then(res => this.games = res.results)
-            .catch(err => console.log('err', err));
+            .catch(err => console.log('err getGames', err));
     }
 
     getMyGames() {
-        return this.dataService.getMyGames()
+        return this.dataService.games.getMy()
             .then((res) => {
-                console.log('MyGames: ', res);
                 this.myGames = res.results;
                 this.RSVPamount = res.count;
-            });
+            })
+            .catch(err => console.log('err getMyGames', err));
     }
 
     goToGame(id: number) {
         this.navCtrl.push(SingleGame, {
-            id: id
+            id
         });
     }
 
     getMe() {
         return this.dataService.getUsersMe()
             .then(res => {
+                console.log('user', res);
                 this.user = res;
-            });
+            })
+            .catch(err => console.log('err getMe', err));
     }
 }

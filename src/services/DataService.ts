@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular/http';
 
 import { Enviroment, ShareService } from './';
+import { GamesAPI } from './api';
 
 import { StoredUser, ApiResponse, UserLoginResponse, GamesList, User } from '../models';
 
@@ -16,6 +17,12 @@ export class DataService {
     private loggedUser: StoredUser;
     private env;
     private fcmtoken: string;
+
+    private _games = new GamesAPI(this);
+
+    get games() {
+        return this._games;
+    }
 
     constructor(
         private platform: Platform,
@@ -154,21 +161,9 @@ export class DataService {
         return this.postData('auth/jwt/', {}, postData, false);
     }
 
-    getGames(): Promise<GamesList> {
+    getInvites(): Promise<any> {
 
-        return this.getData('games/', {});
-    }
-
-    // todo model for my rsvp games
-    getMyGames(): Promise<any> {
-
-        return this.getData('games/my', {})
-    }
-
-    // todo model for specific game
-    getSpecificGame(id: number): Promise<any> {
-
-        return this.getData('games/' + id, {});
+        return this.getData('invites/', {});
     }
 
     getUsersMe(): Promise<User> {

@@ -46,16 +46,20 @@ export interface User {
     birthday?: Date;
     cover?: string;
     email?: string;
-    firstName: string;
+    first_name: string;
     gender?: Gender;
     id?: number;
     img?: string;
-    lastName: string;
-    managedTeams: Team[];
+    last_name: string;
+    managed_teams: Team[];
     games?: GameEvent[];
-    phone?: string;
+    invites?: MyInvites;
+    phone: string|null;
+}
 
-
+export interface MyInvites {
+    games: number;
+    total: number;
 }
 
 export interface StoredUser {

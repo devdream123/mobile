@@ -25,7 +25,7 @@ export class SingleGame implements OnInit {
     }
 
     ngOnInit() {
-        this.dataService.getSpecificGame(this.id)
+        this.dataService.games.getSingle(this.id)
             .then(game => {
                 console.log(game);
                 this.game = game;

@@ -11,7 +11,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { SingleGame } from '../pages/games';
-import { LoginPage } from '../pages/login/login';
+import { LoginPage } from '../pages/login';
+import { InvitesList } from '../pages/invites';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +30,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     HomePage,
     TabsPage,
     SingleGame,
-    LoginPage
+    LoginPage,
+    InvitesList
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     HomePage,
     TabsPage,
     SingleGame,
-    LoginPage
+    LoginPage,
+    InvitesList
   ],
   providers: [
     StatusBar,

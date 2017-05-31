@@ -22,7 +22,7 @@ export class AboutPage {
     }
 
     ionViewWillEnter() {
-        this.dataService.getMyGames()
+        this.dataService.games.getMy()
             .then((res) => {
                 console.log('MyGames: ', res);
                 this.myGames = res.results;
