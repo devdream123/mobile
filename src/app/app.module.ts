@@ -21,6 +21,8 @@ import { PushService, DataService, Enviroment, ShareService } from '../services'
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
+import { RSVPStatusPipe } from '../pipes/rsvp_status';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     SingleGame,
     MyGamesList,
     LoginPage,
-    InvitesList
+    InvitesList,
+    RSVPStatusPipe
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ShareService,
     Enviroment,
     LocalNotifications,
+    RSVPStatusPipe,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

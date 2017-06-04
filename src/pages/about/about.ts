@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DataService } from '../../services';
+// import { DataService } from '../../services/DataService';
 import { RSVPGame } from '../../models';
 
 import { SingleGame } from '../games';
@@ -15,19 +15,19 @@ export class AboutPage {
     RSVPamount: number;
 
     constructor(
-        public navCtrl: NavController,
-        private dataService: DataService
+        public navCtrl: NavController
+        // private dataService: DataService
         ) {
 
     }
 
     ionViewWillEnter() {
-        this.dataService.games.getMy()
-            .then((res) => {
-                console.log('MyGames: ', res);
-                this.myGames = res.results;
-                this.RSVPamount = res.count;
-            });
+        // this.dataService.games.getMy()
+        //     .then((res) => {
+        //         console.log('MyGames: ', res);
+        //         this.myGames = res.results;
+        //         this.RSVPamount = res.count;
+        //     });
     }
 
     goToGame(id: number) {

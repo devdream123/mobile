@@ -8,14 +8,33 @@
 
 <ion-content padding>
 
-    <h1 *ngIf="game">{{game.datetime}}</h1>
+    <h1 *ngIf="game?.datetime">{{game.datetime}}</h1>
 
-    <ion-row *ngIf="game">
-        <h4>{{game.location.name}}</h4>
-        <h5>{{game.location.address}}</h5>
+    <ion-row *ngIf="game?.players">
+        <div class="status">
+            <span class="status__title">I'm</span>
+            <ion-list (ionChange)="statusChanged($event)" class="status__list" radio-group [(ngModel)]="rsvpStatus">
+                <ion-item class="status__list__item">
+                    <ion-label>In</ion-label>
+                    <ion-radio value="1"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Maybe</ion-label>
+                    <ion-radio value="2"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Out</ion-label>
+                    <ion-radio value="0"></ion-radio>
+                </ion-item>
+            </ion-list>
+        </div>
+        <h4 *ngIf="game?.location.name">{{game.location.name}}</h4>
+        <h5 *ngIf="game?.location.address">{{game.location.address}}</h5>
     </ion-row>
 
-    <ion-row *ngIf="game">
+    <ion-row *ngIf="game?.players">
         <h4>Players</h4>
 
         <ion-item tappable class="player" *ngFor="let player of game.players">

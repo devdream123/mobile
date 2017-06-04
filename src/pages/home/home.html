@@ -23,7 +23,7 @@
 
     <ion-row *ngIf="myGames.length > 0" class="rsvp-games">
         <span class="rsvp-games__next">next game</span>
-        <span class="rsvp-games__status">IN</span>
+        <span class="rsvp-games__status">{{myGames[0].rsvp | rsvpStatus}}</span>
         <ion-item (click)="goToGame(myGames[0].id)" tappable class="rsvp-games__game">
             <span class="rsvp-games__game__time">{{myGames[0].datetime}}</span>
             <span class="rsvp-games__game__name">{{myGames[0].location.name}}</span>

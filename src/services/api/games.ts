@@ -25,4 +25,15 @@ export class GamesAPI {
 
         return this.api.requestData(RequestMethod.Get, 'games/' + id, {});
     }
+
+    /**
+     * Updating rsvp status
+     * @param game_id game id
+     * @param rsvp_id
+     * @param rsvp rsvp status 0 - out, 1 - in, 2 - maybe
+     */
+    public updateRSVP(game_id: number, rsvp_id: number, rsvp: number) {
+
+        return this.api.requestData(RequestMethod.Put, 'games/' + game_id + '/players/' + rsvp_id, {}, { rsvp });
+    }
 }

@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular/http';
 
 import { Enviroment, ShareService } from './';
+// import { LoginPage } from '../pages/login/login';
 import { GamesAPI } from './api';
 
 import { StoredUser, ApiResponse, UserLoginResponse, GamesList, User } from '../models';
@@ -193,6 +194,8 @@ export class DataService {
 
         if (err.status === 401) {
             console.info('DataService: handleError: 401 forbidden');
+            this.shareService.setAuthToken(null);
+            // this.events.publish('set_root', LoginPage);
             return Promise.reject(body.msg);
         }
 

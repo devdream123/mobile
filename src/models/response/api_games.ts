@@ -19,7 +19,7 @@ export interface MyGames {
     results: RSVPGame[];
 }
 
-export interface RSVPGame extends Game {
+export interface RSVPGame extends SingleGameModel {
     rsvp: number;
     rsvp_id: number;
     team: number;

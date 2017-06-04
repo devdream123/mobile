@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../../services';
-import { SingleGameModel } from '../../../models';
+import { RSVPGame } from '../../../models';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @Component({
@@ -12,8 +12,10 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 export class SingleGame implements OnInit {
 
     private id: number;
-    game: SingleGameModel;
+    game: RSVPGame;
     canSetNotification: boolean = true;
+
+    rsvpStatus: string | number = null;
 
     constructor(
         private dataService: DataService,
@@ -29,6 +31,7 @@ export class SingleGame implements OnInit {
             .then(game => {
                 console.log(game);
                 this.game = game;
+                this.rsvpStatus = game.players[0].rsvp;
             });
     }
 
@@ -47,5 +50,13 @@ export class SingleGame implements OnInit {
 
         let alertDate = new Date(notificationTime);
         alert(alertDate.toString());
+    }
+
+    statusChanged(e) {
+        if (!this.game) {
+            return;
+        }
+        // todo optimize initial value sending
+        this.dataService.games.updateRSVP(this.id, this.game.players[0].rsvp_id, Number(e));
     }
 }

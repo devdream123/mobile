@@ -14,7 +14,6 @@ export class MyGamesList implements OnInit {
 
     myGames: Game[] = [];
 
-
     constructor(
         private dataService: DataService,
         private navCtrl: NavController

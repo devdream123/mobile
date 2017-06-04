@@ -9,7 +9,7 @@
 
         <ion-card *ngFor="let game of myGames" (click)="goToGame(game.id)" tappable class="game">
             <ion-row class="game__row">
-                <span class="game__status">in</span>
+                <span class="game__status">{{game?.rsvp | rsvpStatus}}</span>
                 <span class="game__text game__text--header">{{game?.teams[0]?.name || 'Pickup game'}}</span>
             </ion-row>
             <ion-row>

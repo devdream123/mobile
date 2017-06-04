@@ -31,4 +31,28 @@ single-game {
             justify-content: flex-end;
         }
     }
+
+    .status {
+
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+        &__title {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        &__list {
+            display: inline-flex;
+        }
+    }
+
+    .item-inner {
+        border: none !important;
+    }
+
+    .list {
+        margin: 0;
+    }
 }
