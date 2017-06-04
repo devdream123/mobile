@@ -32,8 +32,15 @@ export class GamesAPI {
      * @param rsvp_id
      * @param rsvp rsvp status 0 - out, 1 - in, 2 - maybe
      */
-    public updateRSVP(game_id: number, rsvp_id: number, rsvp: number) {
+    // todo model for api response
+    public updateRSVP(game_id: number, rsvp_id: number, rsvp: number): Promise<any> {
 
         return this.api.requestData(RequestMethod.Put, 'games/' + game_id + '/players/' + rsvp_id, {}, { rsvp });
+    }
+
+    // todo model for api response
+    public myGamesInvitations(): Promise<any> {
+
+        return this.api.requestData(RequestMethod.Get, 'games/invites', {});
     }
 }

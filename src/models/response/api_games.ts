@@ -19,6 +19,8 @@ export interface MyGames {
     results: RSVPGame[];
 }
 
+// todo verify models and unify them more
+
 export interface RSVPGame extends SingleGameModel {
     rsvp: number;
     rsvp_id: number;
@@ -37,4 +39,18 @@ export interface SingleGameModel extends Game {
     duration: number | null;
     organizer: any;
     players: Array<any>;
+}
+
+export interface GamesInvitations extends Game {
+    rsvp: number;
+    rsvp_id: number;
+    team: number;
+    teams: TeamInvitations[];
+}
+
+export interface TeamInvitations {
+    id: number;
+    info: string;
+    name: string;
+    type: number;
 }

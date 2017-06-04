@@ -10,7 +10,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { SingleGame, MyGamesList } from '../pages/games';
+import { SingleGame, MyGamesList, MyGamesInvitations } from '../pages/games';
 import { LoginPage } from '../pages/login';
 import { InvitesList } from '../pages/invites';
 
@@ -35,7 +35,8 @@ import { RSVPStatusPipe } from '../pipes/rsvp_status';
     MyGamesList,
     LoginPage,
     InvitesList,
-    RSVPStatusPipe
+    RSVPStatusPipe,
+    MyGamesInvitations
   ],
   imports: [
     BrowserModule,
@@ -53,7 +54,8 @@ import { RSVPStatusPipe } from '../pipes/rsvp_status';
     SingleGame,
     MyGamesList,
     LoginPage,
-    InvitesList
+    InvitesList,
+    MyGamesInvitations
   ],
   providers: [
     StatusBar,

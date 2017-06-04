@@ -3,18 +3,18 @@ export enum Gender {
     Female,
 }
 
-export interface Team {
-    id: number;
-    info?: string;
-    managers?: User[];
-    name: string;
-    players?: any[];
-    playersInGame?: any[];  // When team in a game
-    role?: any;
-    slotsFemale?: string;
-    slotsMale?: string;
-    type?: any;
-}
+// export interface Team {
+//     id: number;
+//     info?: string;
+//     managers?: User[];
+//     name: string;
+//     players?: any[];
+//     playersInGame?: any[];  // When team in a game
+//     role?: any;
+//     slotsFemale?: string;
+//     slotsMale?: string;
+//     type?: any;
+// }
 
 export interface GameEvent {
     id: number;
@@ -30,7 +30,7 @@ export interface GameEvent {
     rsvp?: any;
     // playersCount?: PlayersCount;
     // playersNeeded?: PlayersCount;
-    teams?: Team[];
+    teams?: any[];
     // result?: Result;
     organizer?: User;
     // get name(): string {
@@ -51,7 +51,7 @@ export interface User {
     id?: number;
     img?: string;
     last_name: string;
-    managed_teams: Team[];
+    managed_teams: any[];
     games?: GameEvent[];
     invites?: MyInvites;
     phone: string|null;

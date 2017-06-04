@@ -1,0 +1,16 @@
+my-games-invitations {
+
+    .declaration {
+
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+
+        &__option {
+
+            color: royalblue;
+            display: flex;
+            text-transform: uppercase;
+        }
+    }
+}

@@ -11,7 +11,7 @@
         <span class="me__name">{{user?.first_name}} {{user?.last_name}}</span>
     </ion-item>
 
-    <ion-item tappable *ngIf="user?.invites" class="rsvp">
+    <ion-item tappable (click)="goToInvitations()" *ngIf="user?.invites" class="rsvp">
         <span class="rsvp__count">{{user.invites.total}}</span>
         <span class="rsvp__text">Pending <br/> invitations</span>
     </ion-item>

@@ -22,8 +22,8 @@ export class RSVPStatusPipe implements PipeTransform {
                 break;
             }
             default: {
-                console.log('No rsvp status setting to null');
-                value = null;
+                console.log('No rsvp status setting to -1 unset');
+                value = '';
                 break;
             }
         }

@@ -12,48 +12,4 @@ my-games-list {
         font-size: 3em;
         color: royalblue;
     }
-
-    .game {
-
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-bottom: 10pt;
-
-        &__row {
-            display: flex;
-            width: 100%;
-            position: relative;
-        }
-
-        &__status {
-            font-size: 1em;
-            color: royalblue;
-            text-transform: uppercase;
-            position: absolute;
-            right: 5pt;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        &__text {
-
-            font-size: 1.5em;
-            padding: 5pt 5pt 0 5pt;
-            margin: 0 5pt;
-            width: 100%;
-            color: rgb(55, 55, 55);
-
-            &--small {
-                font-size: .8em;
-                padding: 5pt 10pt;
-                color: rgba(55, 55, 55, .7);
-            }
-
-            &--header {
-                padding-bottom: 5pt;
-                border-bottom: solid 1px rgba(55, 55, 55, .2);
-            }
-        }
-    }
 }
