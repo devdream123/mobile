@@ -15,7 +15,8 @@ export class MyGamesInvitations implements OnInit {
 
     constructor(
         private dataServcie: DataService
-    ) { }
+    ) {
+    }
 
     ngOnInit() {
         this.getInvitations()
@@ -28,7 +29,12 @@ export class MyGamesInvitations implements OnInit {
 
         this.dataServcie.games.updateRSVP(game.id, game.rsvp_id, status)
             .catch(() => this.statusSet = false)
-            .then(() => game.rsvp = status);
+            .then(() => game.rsvp = status)
+            .then(() => {
+                this.gamesInvitations.forEach(g => {
+                    if (g.id === game.id) this.gamesInvitations.splice(this.gamesInvitations.indexOf(g), 1);
+                });
+            });
     }
 
     private getInvitations() {
