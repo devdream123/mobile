@@ -30,7 +30,7 @@ export class GamesAPI {
      * Updating rsvp status
      * @param game_id game id
      * @param rsvp_id
-     * @param rsvp rsvp status 0 - out, 1 - in, 2 - maybe
+     * @param rsvp rsvp status 0 - out, 1 - in, 2 - maybe, -1 not set
      */
     // todo model for api response
     public updateRSVP(game_id: number, rsvp_id: number, rsvp: number): Promise<any> {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DataService } from '../../../services';
 
@@ -10,16 +10,17 @@ import { SingleGame } from '../';
     templateUrl: 'myGamesList.html'
 })
 
-export class MyGamesList implements OnInit {
+export class MyGamesList {
 
     myGames: Game[] = [];
 
     constructor(
         private dataService: DataService,
         private navCtrl: NavController
-    ) { }
+    ) {
+    }
 
-    ngOnInit() {
+    ionViewWillEnter() {
         this.getMyGames();
     }
 
@@ -36,5 +37,12 @@ export class MyGamesList implements OnInit {
         this.navCtrl.push(SingleGame, {
             id
         });
+    }
+
+    doRefresh(refresher) {
+        setTimeout(() => {
+            this.getMyGames();
+            refresher.complete();
+        }, 1500);
     }
 }

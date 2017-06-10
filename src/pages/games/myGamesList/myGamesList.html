@@ -1,25 +1,28 @@
 <ion-header>
     <ion-navbar>
         <ion-title>Upcoming games</ion-title>
-        <ion-icon class="addGame" tappable name="add-circle"></ion-icon>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-        <ion-card *ngFor="let game of myGames" (click)="goToGame(game.id)" tappable class="game">
-            <ion-row class="game__row">
-                <span class="game__status">{{game?.rsvp | rsvpStatus}}</span>
-                <span class="game__text game__text--header">{{game?.teams[0]?.name || 'Pickup game'}}</span>
-            </ion-row>
-            <ion-row>
-                <span class="game__text">Wednesday, 6:00 PM</span>
-                <span class="game__text--small">May 31, 2017</span>
-            </ion-row>
-            <ion-row>
-                <span class="game__text">{{game?.location.name}}</span>
-                <span class="game__text--small">{{game?.location.address}}</span>
-            </ion-row>
-        </ion-card>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card *ngFor="let game of myGames" (click)="goToGame(game.id)" tappable class="game">
+        <ion-row class="game__row">
+            <span class="game__status">{{game?.rsvp | rsvpStatus}}</span>
+            <span class="game__text game__text--header">{{game?.teams[0]?.name || 'Pickup game'}}</span>
+        </ion-row>
+        <ion-row>
+            <span class="game__text">Wednesday, 6:00 PM</span>
+            <span class="game__text--small">May 31, 2017</span>
+        </ion-row>
+        <ion-row>
+            <span class="game__text">{{game?.location.name}}</span>
+            <span class="game__text--small">{{game?.location.address}}</span>
+        </ion-row>
+    </ion-card>
 
 </ion-content>

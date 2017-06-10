@@ -1,8 +1,9 @@
 single-game {
 
     .label {
-        display: flex;
+        display: inline-flex;
         align-items: center;
+        overflow: visible;
     }
 
     .player {
@@ -45,6 +46,7 @@ single-game {
 
         &__list {
             display: inline-flex;
+            flex-grow: 1;
         }
     }
 
@@ -54,5 +56,15 @@ single-game {
 
     .list {
         margin: 0;
+
+        &-ios .item-block .item-inner {
+            display: flex;
+            flex-grow: 1;
+            overflow: visible;
+        }
+    }
+
+    .list-ios > .item-block {
+        border: none !important;
     }
 }
