@@ -162,6 +162,15 @@ export class DataService {
         return this.postData('auth/jwt/', {}, postData, false);
     }
 
+    /**
+     * Logout
+     * @returns {Promise<T>}
+     */
+    logout() {
+
+        return this.getData('auth/logout/', {});
+    }
+
     getInvites(): Promise<any> {
 
         return this.getData('invites/', {});

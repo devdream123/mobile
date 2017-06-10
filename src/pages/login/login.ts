@@ -32,13 +32,17 @@ export class LoginPage implements OnInit {
     }
 
     ngOnInit() {
-        let checkIfLogged = this.shareService.getAuthTokenFromStorage()
-            .then(token => token
-                ? this.shareService.setAuthToken(token)
-                : checkIfLogged.reject('User not logged')
+        this.shareService.getAuthTokenFromStorage()
+            .then(token => {
+                    token
+                        ? this.shareService.setAuthToken(token)
+                        : console.log;
+
+                    return token;
+                }
             )
             .catch(err => console.log(err))
-            .then(() => this.events.publish('set_root', TabsPage));
+            .then(token => token ? this.events.publish('set_root', TabsPage) : console.log('user not logged'));
     }
 
     login() {
