@@ -18,9 +18,15 @@
             <span class="game__text--small">{{game?.location.address}}</span>
         </ion-row>
         <ion-row class="declaration">
-            <ion-item *ngFor="let status of [1,2,0]" (click)="updateRsvp(status, game)" tappable class="declaration__option">
+            <ion-item *ngFor="let status of [1,2,0]" (click)="updateRsvp(status, game)" tappable
+                      class="declaration__option">
                 {{ status | rsvpStatus }}
             </ion-item>
         </ion-row>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <button ion-button (click)="notifyMe24HoursBefore(game)">gotogame</button>
     </ion-card>
 </ion-content>

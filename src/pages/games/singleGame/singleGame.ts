@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 import { DataService } from '../../../services';
 import { RSVPGame } from '../../../models';
-import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import moment from 'moment';
 
@@ -21,8 +20,7 @@ export class SingleGame implements OnInit {
 
     constructor(
         private dataService: DataService,
-        private navParams: NavParams,
-        private localNotifications: LocalNotifications
+        private navParams: NavParams
     ) {
         this.id = this.navParams.get('id');
     }
@@ -38,17 +36,6 @@ export class SingleGame implements OnInit {
             });
     }
 
-    notifyMeHourBefore() {
-        let gameTime = new Date(this.game.datetime);
-        let gameTimestamp = gameTime.getTime();
-        let notificationTime = new Date(gameTimestamp - 3600000);
-
-        this.localNotifications.schedule({
-            id: this.game.id,
-            title: this.game.location.name,
-            at: notificationTime // show notification 1 hour before the game starts
-        });
-    }
 
     statusChanged(e) {
         if (!this.game) {

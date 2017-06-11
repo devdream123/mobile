@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/DataService';
+
 @Component({
     selector: 'invites-list',
     templateUrl: 'invitesList.html'
