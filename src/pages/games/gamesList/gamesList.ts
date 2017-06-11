@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { SingleGame } from '../singleGame/singleGame';
 
 @Component({
     selector: 'games-list',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class GamesList implements OnInit {
-    constructor() { }
+    constructor(
+        private navCtrl: NavController
+    ) { }
 
     ngOnInit() { }
 }

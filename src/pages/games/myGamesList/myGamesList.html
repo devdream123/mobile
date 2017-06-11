@@ -16,12 +16,12 @@
             <span class="game__text game__text--header">{{game?.teams[0]?.name || 'Pickup game'}}</span>
         </ion-row>
         <ion-row>
-            <span class="game__text">Wednesday, 6:00 PM</span>
+            <span class="game__text">Wednesday, 6:00 PM - {{game?.datetime}}</span>
             <span class="game__text--small">May 31, 2017</span>
         </ion-row>
         <ion-row>
-            <span class="game__text">{{game?.location.name}}</span>
-            <span class="game__text--small">{{game?.location.address}}</span>
+            <span class="game__text">{{game?.location?.name}}</span>
+            <span class="game__text--small">{{game?.location?.address}}</span>
         </ion-row>
     </ion-card>
 

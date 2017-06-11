@@ -5,6 +5,8 @@ import { DataService } from '../../services';
 import { Game, User } from '../../models';
 import { SingleGame, MyGamesList, MyGamesInvitations } from '../games';
 
+import moment from 'moment';
+
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -35,6 +37,11 @@ export class HomePage implements OnInit {
             .then((res) => {
                 this.myGames = res.results;
                 this.RSVPamount = res.count;
+
+                if (this.myGames.length > 0) {
+                    let gameTime = new Date(this.myGames[0].datetime);
+                    this.myGames[0].datetime = moment(gameTime).format('LLLL');
+                }
             })
             .catch(err => console.log('err getMyGames', err));
     }
