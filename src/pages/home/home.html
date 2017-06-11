@@ -6,6 +6,8 @@
 
 <ion-content padding>
 
+    <ion-spinner class="spinner" icon="spiral" *ngIf="!user"></ion-spinner>
+
     <ion-item tappable class="me">
         <img class="me__img" src="{{user?.img}}" alt="Me">
         <span class="me__name">{{user?.first_name}} {{user?.last_name}}</span>
@@ -31,19 +33,6 @@
         </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="games.length > 0" class="rsvp-games">
-        <span class="rsvp-games__next">find pickup games</span>
-        <ion-item (click)="goToGame(games[0].id)" tappable class="rsvp-games__game">
-            <span class="rsvp-games__game__time">{{games[0].datetime}}</span>
-            <span class="rsvp-games__game__name">{{games[0].location.name}}</span>
-            <span class="rsvp-games__game__location">{{games[0].location.address}}</span>
-        </ion-item>
-        <ion-item *ngIf="games.length > 1" (click)="goToGame(games[1].id)" tappable class="rsvp-games__game">
-            <span class="rsvp-games__game__time">{{games[1].datetime}}</span>
-            <span class="rsvp-games__game__name">{{games[1].location.name}}</span>
-            <span class="rsvp-games__game__location">{{games[1].location.address}}</span>
-        </ion-item>
-    </ion-row>
     <ion-row *ngIf="myGames.length === 0" class="rsvp-games">
         <span class="rsvp-games__next">no upcoming games</span>
     </ion-row>

@@ -30,6 +30,8 @@ single-game {
             display: flex;
             flex-grow: 1;
             justify-content: flex-end;
+            color: royalblue;
+            text-transform: uppercase;
         }
     }
 
@@ -47,6 +49,22 @@ single-game {
         &__list {
             display: inline-flex;
             flex-grow: 1;
+        }
+    }
+
+    .when {
+
+        &__title {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+    }
+
+    .where {
+
+        &__title {
+            font-size: 1.5em;
+            font-weight: 700;
         }
     }
 

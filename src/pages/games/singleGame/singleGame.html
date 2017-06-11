@@ -8,7 +8,6 @@
 
 <ion-content padding>
 
-    <h1 *ngIf="game?.datetime">{{game.datetime}}</h1>
 
     <ion-row *ngIf="game?.players">
         <div class="status">
@@ -30,22 +29,26 @@
                 </ion-item>
             </ion-list>
         </div>
-        <h4 *ngIf="game?.location.name">{{game.location.name}}</h4>
-        <h5 *ngIf="game?.location.address">{{game.location.address}}</h5>
+        <div class="when">
+            <span class="when__title">When?</span>
+            <span class="when__date">{{game?.datetime}}</span>
+
+        </div>
+        <div class="where">
+            <span class="where__title">Where?</span>
+            <span class="where__location" *ngIf="game?.location.name">{{game.location.name}}</span>
+            <span class="where__address" *ngIf="game?.location.address">{{game.location.address}}</span>
+        </div>
     </ion-row>
 
     <ion-row *ngIf="game?.players">
         <h4>Players</h4>
 
-        <ion-item tappable class="player" *ngFor="let player of game.players">
-            <img class="player__img" src="{{player.img}}" alt="avatar">
-            <span class="player__name">{{player.first_name}}</span>
-            <span class="player__rsvp" *ngIf="player.rsvp">RSVP<ion-icon name="check"></ion-icon></span>
+        <ion-item tappable class="player" *ngFor="let player of game?.players">
+            <img class="player__img" src="{{player?.img}}" alt="avatar">
+            <span class="player__name">{{player?.first_name}}</span>
+            <span class="player__rsvp">{{player?.rsvp | rsvpStatus}}<ion-icon name="check"></ion-icon></span>
         </ion-item>
     </ion-row>
 
 </ion-content>
-
-<ion-footer>
-    <button [disabled]="!canSetNotification" tappable ion-button full bottom (click)="notifyMeHourBefore()">Notify me 1 hour before</button>
-</ion-footer>

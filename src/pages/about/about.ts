@@ -1,40 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-// import { DataService } from '../../services/DataService';
-import { RSVPGame } from '../../models';
 
-import { SingleGame } from '../games';
+import { DataService } from '../../services/DataService';
+import { Game } from '../../models/response/api_games';
 
 @Component({
-    selector: 'page-about',
+    selector: 'page-home',
     templateUrl: 'about.html'
 })
-export class AboutPage {
+export class AboutPage implements OnInit {
 
-    myGames: RSVPGame[] = [];
-    RSVPamount: number;
+    games: Game[] = [];
 
     constructor(
-        public navCtrl: NavController
-        // private dataService: DataService
-        ) {
+        public navCtrl: NavController,
+        private dataService: DataService
+    ) {
 
     }
 
-    ionViewWillEnter() {
-        // this.dataService.games.getMy()
-        //     .then((res) => {
-        //         console.log('MyGames: ', res);
-        //         this.myGames = res.results;
-        //         this.RSVPamount = res.count;
-        //     });
+    ngOnInit() {
+        this.getGames();
     }
 
-    goToGame(id: number) {
-        console.log(id);
-        this.navCtrl.push(SingleGame, {
-            id: id
-        });
+    getGames() {
+        return this.dataService.games.getAll()
+            .then(res => this.games = res.results)
+            .catch(err => console.log('err getGames', err));
     }
 
 }

@@ -8,7 +8,7 @@ export interface GamesList {
 export interface Game {
     id: number;
     teams: Array<any>;
-    datetime: Date;
+    datetime: any; // todo think abt solution Date | string
     location: GameLocation;
 }
 

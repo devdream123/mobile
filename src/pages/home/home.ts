@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { DataService, ShareService } from '../../services';
+import { DataService } from '../../services';
 import { Game, User } from '../../models';
 import { SingleGame, MyGamesList, MyGamesInvitations } from '../games';
 
@@ -12,7 +12,6 @@ import { SingleGame, MyGamesList, MyGamesInvitations } from '../games';
 export class HomePage implements OnInit {
 
 
-    logged: boolean = false;
     games: Game[] = [];
     user: User;
     rsvp: boolean = true;
@@ -21,22 +20,14 @@ export class HomePage implements OnInit {
 
     constructor(
         private navCtrl: NavController,
-        private dataService: DataService,
-        private shareService: ShareService
+        private dataService: DataService
     ) {
 
     }
 
     ngOnInit() {
         this.getMe()
-            .then(() => this.getMyGames())
-            .then(() => this.getGames());
-    }
-
-    getGames() {
-        return this.dataService.games.getAll()
-            .then(res => this.games = res.results)
-            .catch(err => console.log('err getGames', err));
+            .then(() => this.getMyGames());
     }
 
     getMyGames() {
@@ -55,6 +46,7 @@ export class HomePage implements OnInit {
     }
 
     goToMyGamesList() {
+
         this.navCtrl.push(MyGamesList);
     }
 

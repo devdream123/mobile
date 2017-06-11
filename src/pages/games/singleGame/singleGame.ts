@@ -4,6 +4,8 @@ import { DataService } from '../../../services';
 import { RSVPGame } from '../../../models';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
+import moment from 'moment';
+
 @Component({
     selector: 'single-game',
     templateUrl: 'singleGame.html'
@@ -32,6 +34,8 @@ export class SingleGame implements OnInit {
                 console.log(game);
                 this.game = game;
                 this.rsvpStatus = game.players[0].rsvp;
+                let gameTime = new Date(this.game.datetime);
+                this.game.datetime = moment(gameTime).format('LLLL');
             });
     }
 
