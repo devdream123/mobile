@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { DataService } from '../../../services';
 import { RSVPGame } from '../../../models';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -22,7 +22,6 @@ export class SingleGame implements OnInit {
     constructor(
         private dataService: DataService,
         private navParams: NavParams,
-        private navCtrl: NavController,
         private localNotifications: LocalNotifications
     ) {
         this.id = this.navParams.get('id');
@@ -49,11 +48,6 @@ export class SingleGame implements OnInit {
             title: this.game.location.name,
             at: notificationTime // show notification 1 hour before the game starts
         });
-
-        this.canSetNotification = false;
-
-        let alertDate = new Date(notificationTime);
-        alert(alertDate.toString());
     }
 
     statusChanged(e) {
@@ -61,6 +55,8 @@ export class SingleGame implements OnInit {
             return;
         }
         // todo optimize initial value sending
-        this.dataService.games.updateRSVP(this.id, this.game.players[0].rsvp_id, Number(e));
+        this.dataService.games.updateRSVP(this.id, this.game.players[0].rsvp_id, Number(e))
+            .catch(err => console.log('SingleGame statusChanged err', err))
+            .then(() => this.game.players[0].rsvp = Number(e));
     }
 }

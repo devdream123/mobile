@@ -14,18 +14,18 @@
             <span class="status__title">I'm</span>
             <ion-list (ionChange)="statusChanged($event)" class="status__list" radio-group [(ngModel)]="rsvpStatus">
                 <ion-item class="status__list__item">
-                    <ion-label>In</ion-label>
-                    <ion-radio value="1"></ion-radio>
+                    <ion-label class="status__list__item--label">In</ion-label>
+                    <ion-radio class="status__list__item--radio" value="1"></ion-radio>
                 </ion-item>
 
-                <ion-item>
-                    <ion-label>Maybe</ion-label>
-                    <ion-radio value="2"></ion-radio>
+                <ion-item class="status__list__item">
+                    <ion-label class="status__list__item--label">Maybe</ion-label>
+                    <ion-radio class="status__list__item--radio" value="2"></ion-radio>
                 </ion-item>
 
-                <ion-item>
-                    <ion-label>Out</ion-label>
-                    <ion-radio value="0"></ion-radio>
+                <ion-item class="status__list__item">
+                    <ion-label class="status__list__item--label">Out</ion-label>
+                    <ion-radio class="status__list__item--radio" value="0"></ion-radio>
                 </ion-item>
             </ion-list>
         </div>
@@ -36,8 +36,7 @@
         </div>
         <div class="where">
             <span class="where__title">Where?</span>
-            <span class="where__location" *ngIf="game?.location.name">{{game.location.name}}</span>
-            <span class="where__address" *ngIf="game?.location.address">{{game.location.address}}</span>
+            <span class="where__location">{{game?.location?.name}}, {{game?.location?.address}}</span>
         </div>
     </ion-row>
 
