@@ -1,7 +1,7 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 
@@ -65,8 +65,7 @@ import { RSVPStatusPipe } from '../pipes/rsvp_status';
     ShareService,
     Enviroment,
     LocalNotifications,
-    RSVPStatusPipe,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    RSVPStatusPipe
   ]
 })
 export class AppModule { }

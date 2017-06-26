@@ -6,6 +6,7 @@ import { Game, User } from '../../models';
 import { SingleGame, MyGamesList, MyGamesInvitations } from '../games';
 
 import moment from 'moment';
+import { ShareService } from '../../services/ShareService';
 
 @Component({
     selector: 'page-home',
@@ -22,7 +23,8 @@ export class HomePage implements OnInit {
 
     constructor(
         private navCtrl: NavController,
-        private dataService: DataService
+        private dataService: DataService,
+        private share: ShareService
     ) {
 
     }
@@ -67,6 +69,7 @@ export class HomePage implements OnInit {
             .then(res => {
                 console.log('user', res);
                 this.user = res;
+                this.share.setUser(res);
             })
             .catch(err => console.log('err getMe', err));
     }

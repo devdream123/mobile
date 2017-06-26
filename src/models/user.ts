@@ -1,7 +1,7 @@
-export enum Gender {
-    Male,
-    Female,
-}
+// export enum Gender {
+//     Male,
+//     Female,
+// }
 
 // export interface Team {
 //     id: number;
@@ -42,19 +42,18 @@ export interface GameEvent {
 }
 
 export interface User {
-    bio?: string;
-    birthday?: Date;
-    cover?: string;
-    email?: string;
+    bio: string | null;
+    birthday: string;
+    cover: string | null;
+    email: string;
     first_name: string;
-    gender?: Gender;
-    id?: number;
-    img?: string;
+    gender: string;
+    id: number;
+    img: string | null;
+    invites: MyInvites;
     last_name: string;
     managed_teams: any[];
-    games?: GameEvent[];
-    invites?: MyInvites;
-    phone: string|null;
+    phone: string | null;
 }
 
 export interface MyInvites {

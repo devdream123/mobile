@@ -39,7 +39,6 @@
         "ionic-plugin-keyboard": "~2.2.1",
         "ionicons": "3.0.0",
         "moment": "^2.18.1",
-        "phonegap-plugin-push": "^1.10.4",
         "rxjs": "5.1.1",
         "sw-toolbox": "3.4.0",
         "zone.js": "0.8.10"
@@ -69,10 +68,7 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
-            "de.appplant.cordova.plugin.local-notification": {},
-            "phonegap-plugin-push": {
-                "SENDER_ID": "549974841280"
-            }
+            "de.appplant.cordova.plugin.local-notification": {}
         },
         "platforms": [
             "android"

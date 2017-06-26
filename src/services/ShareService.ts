@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { User } from '../models/user';
 
 @Injectable()
 export class ShareService {
 
     private authToken: string;
+    user: User;
 
     constructor(
         private storage: Storage
@@ -28,5 +30,15 @@ export class ShareService {
 
     getAuthTokenFromStorage(): Promise<string> {
         return this.storage.get('authToken');
+    }
+
+    setUser(user: User) {
+        console.log('ShareService setUser user', user);
+        this.user = user;
+    }
+
+    getUser(): User {
+        console.log('ShareService getUser user', this.user);
+        return this.user;
     }
 }
