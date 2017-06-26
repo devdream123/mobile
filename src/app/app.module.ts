@@ -22,6 +22,7 @@ import { PushService, DataService, Enviroment, ShareService } from '../services'
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { RSVPStatusPipe } from '../pipes/rsvp_status';
+import { GamesList } from '../pages/games/gamesList/gamesList';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { RSVPStatusPipe } from '../pipes/rsvp_status';
     LoginPage,
     InvitesList,
     RSVPStatusPipe,
-    MyGamesInvitations
+    MyGamesInvitations,
+    GamesList
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { RSVPStatusPipe } from '../pipes/rsvp_status';
     MyGamesList,
     LoginPage,
     InvitesList,
-    MyGamesInvitations
+    MyGamesInvitations,
+    GamesList
   ],
   providers: [
     StatusBar,

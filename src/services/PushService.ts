@@ -29,19 +29,20 @@ export class PushService {
     }
 
     private setFCMHandler(handler: (push: FCMPush) => void): Promise<any> {
-        return new Promise<void>((resolve, reject) => {
-            FCMPlugin.onNotification(
-                handler,
-                (msg) => {
-                    console.log('PushService: setFCMHandler: onNotification callback successfully registered: ', msg);
-                    resolve(msg);
-                },
-                (err) => {
-                    console.log('PushService: setFCMHandler: Error registering onNotification callback: ', err);
-                    reject(err);
-                }
-            );
-        });
+        // return new Promise<void>((resolve, reject) => {
+        //     FCMPlugin.onNotification(
+        //         handler,
+        //         (msg) => {
+        //             console.log('PushService: setFCMHandler: onNotification callback successfully registered: ', msg);
+        //             resolve(msg);
+        //         },
+        //         (err) => {
+        //             console.log('PushService: setFCMHandler: Error registering onNotification callback: ', err);
+        //             reject(err);
+        //         }
+        //     );
+        // });
+        return Promise.resolve();
     }
 
     private handler(push: FCMPush) {

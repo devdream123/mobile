@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { SingleGame } from '../pages/games/singleGame/singleGame';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
-declare var FCMPlugin: any;
+// declare var FCMPlugin: any;
 @Component({
     templateUrl: 'app.html'
 })

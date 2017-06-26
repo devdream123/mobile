@@ -11,7 +11,7 @@ import { StoredUser, ApiResponse, UserLoginResponse, GamesList, User } from '../
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
-declare var FCMPlugin: any;
+// declare var FCMPlugin: any;
 @Injectable()
 export class DataService {
 
