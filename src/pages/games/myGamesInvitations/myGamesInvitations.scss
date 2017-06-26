@@ -13,4 +13,13 @@ my-games-invitations {
             text-transform: uppercase;
         }
     }
+
+    .no-more {
+        display: flex;
+        justify-content: center;
+        text-transform: uppercase;
+        width: 100%;
+        padding-top: 10pt;
+        font-size: 2em;
+    }
 }

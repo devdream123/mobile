@@ -10,8 +10,8 @@
             <span class="game__text game__text--header">{{game?.teams[0]?.name || 'Pickup game'}}</span>
         </ion-row>
         <ion-row>
-            <span class="game__text">Wednesday, 6:00 PM</span>
-            <span class="game__text--small">May 31, 2017</span>
+            <span class="game__text">{{game?.datetime | date: 'EEEE hh:mm a'}}</span>
+            <span class="game__text--small">{{game?.datetime | date: 'MMMM dd, y'}}</span>
         </ion-row>
         <ion-row>
             <span class="game__text">{{game?.location.name}}</span>
@@ -23,10 +23,6 @@
                 {{ status | rsvpStatus }}
             </ion-item>
         </ion-row>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <button ion-button (click)="notifyMe24HoursBefore(game)">gotogame</button>
     </ion-card>
+    <span class="no-more" *ngIf="gamesInvitations && gamesInvitations.length < 1">No more invitations for games</span>
 </ion-content>
