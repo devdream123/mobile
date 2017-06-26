@@ -10,17 +10,11 @@
 
     <ion-row class="rsvp-games">
         <span class="rsvp-games__next">find pickup games</span>
-        <ion-item (click)="goToGame(games[0].id)" tappable class="rsvp-games__game">
-            <ion-spinner class="spinner" icon="spiral" *ngIf="!games[0]"></ion-spinner>
-            <span class="rsvp-games__game__time">{{games[0]?.datetime}}</span>
-            <span class="rsvp-games__game__name">{{games[0]?.location.name}}</span>
-            <span class="rsvp-games__game__location">{{games[0]?.location.address}}</span>
-        </ion-item>
-        <ion-item (click)="goToGame(games[1].id)" tappable class="rsvp-games__game">
-            <ion-spinner class="spinner" icon="spiral" *ngIf="!games[1]"></ion-spinner>
-            <span class="rsvp-games__game__time">{{games[1]?.datetime}}</span>
-            <span class="rsvp-games__game__name">{{games[1]?.location.name}}</span>
-            <span class="rsvp-games__game__location">{{games[1]?.location.address}}</span>
+        <ion-spinner class="spinner" icon="spiral" *ngIf="isLoading"></ion-spinner>
+        <ion-item  *ngFor="let game of games" (click)="goToGame(game.id)" tappable class="rsvp-games__game">
+            <span class="rsvp-games__game__time">{{game?.datetime | date:'EEEE MMMM d, y, hh:mm a'}}</span>
+            <span class="rsvp-games__game__name">{{game?.location.name}}</span>
+            <span class="rsvp-games__game__location">{{game?.location.address}}</span>
         </ion-item>
     </ion-row>
 

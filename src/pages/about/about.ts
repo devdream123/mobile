@@ -12,6 +12,7 @@ import { SingleGame } from '../games/singleGame/singleGame';
 export class AboutPage implements OnInit {
 
     games: Game[] = [];
+    isLoading: boolean = true;
 
     constructor(
         public navCtrl: NavController,
@@ -27,7 +28,12 @@ export class AboutPage implements OnInit {
     getGames() {
         return this.dataService.games.getAll()
             .then(res => this.games = res.results)
-            .catch(err => console.log('err getGames', err));
+            .then(() => this.isLoading = false)
+            .catch(err => {
+                    this.isLoading = false;
+                    console.log('err getGames', err);
+                }
+            )
     }
 
     goToGame(id: number) {
