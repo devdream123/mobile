@@ -6,10 +6,8 @@ import { PushService } from '../services/PushService';
 import { DataService } from '../services/DataService';
 
 import { LoginPage } from '../pages/login/login';
-import { SingleGame } from '../pages/games/singleGame/singleGame';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
-// declare var FCMPlugin: any;
 @Component({
     templateUrl: 'app.html'
 })
@@ -20,7 +18,6 @@ export class MyApp {
         private platform: Platform,
         private statusBar: StatusBar,
         private pushService: PushService,
-        private dataService: DataService,
         private events: Events,
         private localNotifications: LocalNotifications
     ) {
@@ -39,7 +36,7 @@ export class MyApp {
             this.statusBar.hide();
             if (this.platform.is('android')) {
                 console.log('MyApp platformReady() start push listening - android platform');
-                this.dataService.initFirebase().then((token) => {
+                DataService.initFirebase().then((token) => {
                     console.log('success init firebase ', token);
                     this.pushService.listen();
                 })

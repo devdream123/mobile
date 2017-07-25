@@ -17,7 +17,7 @@ export class GamesAPI {
     // todo model for my rsvp games
     public getMy(): Promise<any> {
 
-        return this.api.requestData(RequestMethod.Get, 'games/my', {})
+        return this.api.requestData(RequestMethod.Get, 'games/my', {});
     }
 
     // todo model for specific game

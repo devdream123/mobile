@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Platform } from 'ionic-angular';
 import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular/http';
 
 import { Enviroment, ShareService } from './';
-// import { LoginPage } from '../pages/login/login';
-import { GamesAPI } from './api';
+import { GamesAPI, UsersAPI } from './api';
 
-import { StoredUser, ApiResponse, UserLoginResponse, GamesList, User } from '../models';
+import { StoredUser, ApiResponse, UserLoginResponse } from '../models';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
-// declare var FCMPlugin: any;
 @Injectable()
 export class DataService {
 
@@ -20,13 +17,17 @@ export class DataService {
     private fcmtoken: string;
 
     private _games = new GamesAPI(this);
+    private _users = new UsersAPI(this);
 
     get games() {
         return this._games;
     }
 
+    get users() {
+        return this._users;
+    }
+
     constructor(
-        private platform: Platform,
         private http: Http,
         private shareService: ShareService,
         env: Enviroment
@@ -34,7 +35,7 @@ export class DataService {
 
         this.env = env.getEnv();
 
-        this.initFirebase().then((token: string) => {
+        DataService.initFirebase().then((token: string) => {
             this.fcmtoken = token;
         });
 
@@ -103,7 +104,6 @@ export class DataService {
             .toPromise()
             .catch(err => this.handleError(err))
             .then(res => res.json())
-        // .then((res: ApiResponse<T>) => res.data);
     }
 
     /**
@@ -136,7 +136,7 @@ export class DataService {
     /**
      * Initialize firebase for push notifications and push messages
      */
-    initFirebase() {
+    static initFirebase() {
         console.log('Firebase initializing...');
         return new Promise((resolve, reject) => {
             // this.platform.ready().then(() => {
@@ -157,7 +157,7 @@ export class DataService {
         let postData = {
             username: username, // provide credencials hardcoded
             password: password
-        }
+        };
 
         return this.postData('auth/jwt/', {}, postData, false);
     }
@@ -175,12 +175,6 @@ export class DataService {
 
         return this.getData('invites/', {});
     }
-
-    getUsersMe(): Promise<User> {
-
-        return this.getData('users/me', {});
-    }
-
 
     /**
      * Handle errors on API call

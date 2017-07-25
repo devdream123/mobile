@@ -65,7 +65,7 @@ export class HomePage implements OnInit {
     }
 
     getMe() {
-        return this.dataService.getUsersMe()
+        return this.dataService.users.getMyProfile()
             .then(res => {
                 console.log('user', res);
                 this.user = res;

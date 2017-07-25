@@ -5,8 +5,6 @@ import { DataService } from '../../../services';
 import { Game } from '../../../models';
 import { SingleGame } from '../';
 
-import moment from 'moment';
-
 @Component({
     selector: 'my-games-list',
     templateUrl: 'myGamesList.html'

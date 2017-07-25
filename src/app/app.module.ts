@@ -24,51 +24,60 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { RSVPStatusPipe } from '../pipes/rsvp_status';
 import { GamesList } from '../pages/games/gamesList/gamesList';
 
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
+const cloudSettings: CloudSettings = {
+    'core': {
+        'app_id': 'ac2957a1'
+    }
+};
 
 @NgModule({
-  declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage,
-    SingleGame,
-    MyGamesList,
-    LoginPage,
-    InvitesList,
-    RSVPStatusPipe,
-    MyGamesInvitations,
-    GamesList
-  ],
-  imports: [
-    BrowserModule,
-    HttpModule,
-    IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage,
-    SingleGame,
-    MyGamesList,
-    LoginPage,
-    InvitesList,
-    MyGamesInvitations,
-    GamesList
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    PushService,
-    DataService,
-    ShareService,
-    Enviroment,
-    LocalNotifications,
-    RSVPStatusPipe
-  ]
+    declarations: [
+        MyApp,
+        AboutPage,
+        ContactPage,
+        HomePage,
+        TabsPage,
+        SingleGame,
+        MyGamesList,
+        LoginPage,
+        InvitesList,
+        RSVPStatusPipe,
+        MyGamesInvitations,
+        GamesList
+    ],
+    imports: [
+        BrowserModule,
+        HttpModule,
+        IonicModule.forRoot(MyApp),
+        IonicStorageModule.forRoot(),
+        CloudModule.forRoot(cloudSettings)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        AboutPage,
+        ContactPage,
+        HomePage,
+        TabsPage,
+        SingleGame,
+        MyGamesList,
+        LoginPage,
+        InvitesList,
+        MyGamesInvitations,
+        GamesList
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        PushService,
+        DataService,
+        ShareService,
+        Enviroment,
+        LocalNotifications,
+        RSVPStatusPipe
+    ]
 })
-export class AppModule { }
+export class AppModule {
+}
