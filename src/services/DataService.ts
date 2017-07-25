@@ -14,7 +14,6 @@ export class DataService {
 
     private loggedUser: StoredUser;
     private env;
-    private fcmtoken: string;
 
     private _games = new GamesAPI(this);
     private _users = new UsersAPI(this);
@@ -32,13 +31,7 @@ export class DataService {
         private shareService: ShareService,
         env: Enviroment
     ) {
-
         this.env = env.getEnv();
-
-        DataService.initFirebase().then((token: string) => {
-            this.fcmtoken = token;
-        });
-
     }
 
     public init(user: StoredUser) {
@@ -131,21 +124,6 @@ export class DataService {
         withToken: boolean = true
     ): Promise<T> {
         return this.requestData(RequestMethod.Post, url, params, postData, withToken);
-    }
-
-    /**
-     * Initialize firebase for push notifications and push messages
-     */
-    static initFirebase() {
-        console.log('Firebase initializing...');
-        return new Promise((resolve, reject) => {
-            // this.platform.ready().then(() => {
-            //     FCMPlugin.getToken(
-            //         token => resolve(token),
-            //         err => reject(err)
-            //     );
-            // });
-        });
     }
 
     /**

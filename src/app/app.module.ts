@@ -17,7 +17,7 @@ import { InvitesList } from '../pages/invites';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { PushService, DataService, Enviroment, ShareService } from '../services';
+import { DataService, Enviroment, ShareService } from '../services';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
@@ -71,7 +71,6 @@ const cloudSettings: CloudSettings = {
     providers: [
         StatusBar,
         SplashScreen,
-        PushService,
         DataService,
         ShareService,
         Enviroment,

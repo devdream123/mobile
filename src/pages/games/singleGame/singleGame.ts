@@ -17,7 +17,6 @@ export class SingleGame implements OnInit {
     private id: number;
     game: RSVPGame;
     user: User;
-    // canSetNotification: boolean = true;
 
     rsvpStatus: string | number;
 
