@@ -8,14 +8,6 @@
 
 <ion-content padding>
 
-    <ion-row class="rsvp-games">
-        <span class="rsvp-games__next">find pickup games</span>
-        <ion-spinner class="spinner" icon="spiral" *ngIf="isLoading"></ion-spinner>
-        <ion-item  *ngFor="let game of games" (click)="goToGame(game.id)" tappable class="rsvp-games__game">
-            <span class="rsvp-games__game__time">{{game?.datetime | date:'EEEE MMMM d, y, hh:mm a'}}</span>
-            <span class="rsvp-games__game__name">{{game?.location.name}}</span>
-            <span class="rsvp-games__game__location">{{game?.location.address}}</span>
-        </ion-item>
-    </ion-row>
+    <game-card *ngFor="let game of games" [game]="game"></game-card>
 
 </ion-content>

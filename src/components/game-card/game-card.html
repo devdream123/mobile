@@ -1,0 +1,14 @@
+<ion-card (click)="goToGame(game.id)" tappable class="game">
+    <ion-row class="game__row">
+        <span class="game__status">{{game?.rsvp | rsvpStatus}}</span>
+        <span class="game__text game__text--header">{{game?.teams[0]?.name || 'Pickup game'}}</span>
+    </ion-row>
+    <ion-row>
+        <span class="game__text">{{game?.datetime | date: 'EEEE hh:mm a'}}</span>
+        <span class="game__text--small">{{game?.datetime | date: 'MMMM dd, y'}}</span>
+    </ion-row>
+    <ion-row>
+        <span class="game__text">{{game?.location?.name}}</span>
+        <span class="game__text--small">{{game?.location?.address}}</span>
+    </ion-row>
+</ion-card>

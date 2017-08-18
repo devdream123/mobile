@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 export class Enviroment {
     private api = {
-        dev: 'https://dev.goodfoot.club/api'
+        dev: '/api/'
     };
 
     // for device add https://dev.goodfoot.club/api

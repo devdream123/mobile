@@ -25,6 +25,8 @@ import { RSVPStatusPipe } from '../pipes/rsvp_status';
 import { GamesList } from '../pages/games/gamesList/gamesList';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { ComponentsModule } from '../components/components.module';
+import { GameCardComponent } from '../components/game-card/game-card';
 
 const cloudSettings: CloudSettings = {
     'core': {
@@ -45,7 +47,8 @@ const cloudSettings: CloudSettings = {
         InvitesList,
         RSVPStatusPipe,
         MyGamesInvitations,
-        GamesList
+        GamesList,
+        GameCardComponent
     ],
     imports: [
         BrowserModule,
@@ -66,7 +69,8 @@ const cloudSettings: CloudSettings = {
         LoginPage,
         InvitesList,
         MyGamesInvitations,
-        GamesList
+        GamesList,
+        GameCardComponent
     ],
     providers: [
         StatusBar,

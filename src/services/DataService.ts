@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular/http';
 
-import { Enviroment, ShareService } from './';
+import { Enviroment } from './Enviroment';
+import { ShareService } from './ShareService';
 import { GamesAPI, UsersAPI } from './api';
 
 import { StoredUser, ApiResponse, UserLoginResponse } from '../models';

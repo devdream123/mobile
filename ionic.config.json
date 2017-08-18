@@ -1,5 +1,14 @@
 {
   "name": "mobile",
   "app_id": "ac2957a1",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://dev.goodfoot.club/api"
+    }
+  ],
+  "integrations": {
+    "cordova": {}
+  }
 }
