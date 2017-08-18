@@ -43,7 +43,7 @@
     <ion-row *ngIf="game?.players">
         <h4>Players</h4>
 
-        <ion-item tappable class="player" *ngFor="let player of game?.players">
+        <ion-item (click)="goToProfile(player)" tappable class="player" *ngFor="let player of game?.players">
             <img class="player__img" src="{{player?.img}}" alt="avatar">
             <span class="player__name">{{player?.first_name}}</span>
             <span class="player__rsvp">{{player?.rsvp | rsvpStatus}}<ion-icon name="check"></ion-icon></span>

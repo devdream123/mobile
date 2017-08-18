@@ -27,6 +27,8 @@ import { GamesList } from '../pages/games/gamesList/gamesList';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { ComponentsModule } from '../components/components.module';
 import { GameCardComponent } from '../components/game-card/game-card';
+import { GenderPipe } from '../pipes/gender';
+import { ProfilePage } from '../pages/profile/profile';
 
 const cloudSettings: CloudSettings = {
     'core': {
@@ -48,7 +50,9 @@ const cloudSettings: CloudSettings = {
         RSVPStatusPipe,
         MyGamesInvitations,
         GamesList,
-        GameCardComponent
+        GameCardComponent,
+        ProfilePage,
+        GenderPipe
     ],
     imports: [
         BrowserModule,
@@ -70,7 +74,8 @@ const cloudSettings: CloudSettings = {
         InvitesList,
         MyGamesInvitations,
         GamesList,
-        GameCardComponent
+        GameCardComponent,
+        ProfilePage
     ],
     providers: [
         StatusBar,

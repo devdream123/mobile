@@ -1,0 +1,32 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Profile</ion-title>
+        <ion-icon tappable (click)="editProfile()" class="icon" name="create"></ion-icon>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-row class="header">
+        <img *ngIf="user && user?.cover" src="{{user?.cover}}" alt="background" class="header__bg-img">
+        <img *ngIf="!user?.cover" src="https://placekitten.com/611/311/" alt="background">
+    </ion-row>
+
+    <ion-row class="user">
+        <div class="avatar">
+            <img src="{{user?.img}}" alt="avatar" class="avatar__img">
+        </div>
+        <span class="user__name">{{user?.first_name}} {{user?.last_name}}</span>
+        <span class="user__gender">{{user?.gender | gender}}</span>
+        <span class="user__birthdate">{{user.birthday}}</span>
+    </ion-row>
+
+    <ion-row class="bio">
+        <span class="bio__title">bio</span>
+        <span class="bio__text">{{user?.bio}}</span>
+    </ion-row>
+
+</ion-content>

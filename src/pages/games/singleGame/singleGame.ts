@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../../services';
 import { RSVPGame } from '../../../models';
 
 import moment from 'moment';
 import { ShareService } from '../../../services/ShareService';
 import { User } from '../../../models/user';
+import { ProfilePage } from '../../profile/profile';
 
 @Component({
     selector: 'single-game',
@@ -23,7 +24,8 @@ export class SingleGame implements OnInit {
     constructor(
         private dataService: DataService,
         private navParams: NavParams,
-        private share: ShareService
+        private share: ShareService,
+        private navCtrl: NavController
     ) {
         this.id = this.navParams.get('id');
     }
@@ -75,5 +77,9 @@ export class SingleGame implements OnInit {
                 .then(() => this.game.players[index].rsvp = Number(e));
         }
 
+    }
+
+    private goToProfile(user: User): void {
+        this.navCtrl.push(ProfilePage, {user})
     }
 }

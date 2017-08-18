@@ -7,6 +7,7 @@ import { SingleGame, MyGamesList, MyGamesInvitations } from '../games';
 
 import moment from 'moment';
 import { ShareService } from '../../services/ShareService';
+import { ProfilePage } from '../profile/profile';
 
 @Component({
     selector: 'page-home',
@@ -72,5 +73,9 @@ export class HomePage implements OnInit {
                 this.share.setUser(res);
             })
             .catch(err => console.log('err getMe', err));
+    }
+
+    goToProfile() {
+        this.navCtrl.push(ProfilePage, {user: this.user});
     }
 }
