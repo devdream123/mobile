@@ -56,6 +56,15 @@ export interface User {
     phone: string | null;
 }
 
+export interface UserPlayer {
+    id: number;
+    bio: string;
+    cover: string | null;
+    first_name: string;
+    img: string | null;
+    last_name: string;
+}
+
 export interface MyInvites {
     games: number;
     total: number;

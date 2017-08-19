@@ -79,7 +79,7 @@ export class SingleGame implements OnInit {
 
     }
 
-    private goToProfile(user: User): void {
-        this.navCtrl.push(ProfilePage, {user})
+    private goToProfile(id: number): void {
+        this.navCtrl.push(ProfilePage, {id})
     }
 }

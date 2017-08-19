@@ -35,7 +35,7 @@ export class HomePage implements OnInit {
             .then(() => this.getMyGames());
     }
 
-    getMyGames() {
+    private getMyGames(): Promise<void> {
         return this.dataService.games.getMy()
             .then((res) => {
                 this.myGames = res.results;
@@ -49,23 +49,7 @@ export class HomePage implements OnInit {
             .catch(err => console.log('err getMyGames', err));
     }
 
-    goToGame(id: number) {
-        this.navCtrl.push(SingleGame, {
-            id
-        });
-    }
-
-    goToMyGamesList() {
-
-        this.navCtrl.push(MyGamesList);
-    }
-
-    goToInvitations() {
-
-        this.navCtrl.push(MyGamesInvitations);
-    }
-
-    getMe() {
+    private getMe(): Promise<void> {
         return this.dataService.users.getMyProfile()
             .then(res => {
                 console.log('user', res);
@@ -75,7 +59,27 @@ export class HomePage implements OnInit {
             .catch(err => console.log('err getMe', err));
     }
 
-    goToProfile() {
-        this.navCtrl.push(ProfilePage, {user: this.user});
+    private goToGame(id: number): void {
+        this.navCtrl.push(SingleGame, {
+            id
+        });
+    }
+
+    private goToMyGamesList(): void {
+
+        this.navCtrl.push(MyGamesList);
+    }
+
+    private goToMyInvitations(): void {
+
+        this.navCtrl.push(MyGamesInvitations);
+    }
+
+    private goToProfile(): void {
+        this.navCtrl.push(ProfilePage, {id: this.user.id});
+    }
+
+    private goToMyTeams(): void {
+
     }
 }

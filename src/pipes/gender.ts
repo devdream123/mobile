@@ -21,7 +21,7 @@ export class GenderPipe implements PipeTransform {
                 value = 'Female';
                 break;
             default:
-                value = 'Uncertain';
+                value = '';
         }
 
         return value.toUpperCase();

@@ -1,7 +1,6 @@
 import { DataService } from '../DataService';
 import { RequestMethod } from '@angular/http';
-import { User } from '../../models/user';
-
+import { User, UserPlayer } from '../../models/user';
 
 export class UsersAPI {
 
@@ -11,7 +10,10 @@ export class UsersAPI {
     }
 
     public getMyProfile(): Promise<User> {
-
         return this.api.requestData(RequestMethod.Get, 'users/me', {});
+    }
+
+    public getUserById(id: number): Promise<UserPlayer> {
+        return this.api.requestData(RequestMethod.Get, 'users/players/' + id, {});
     }
 }

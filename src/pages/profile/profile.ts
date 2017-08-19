@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavParams } from 'ionic-angular';
-import { User } from '../../models/user';
+import { DataService } from '../../services/DataService';
+import { UserPlayer } from '../../models/user';
 
 /**
  * Generated class for the ProfilePage page.
@@ -13,14 +14,23 @@ import { User } from '../../models/user';
     selector: 'page-profile',
     templateUrl: 'profile.html',
 })
-export class ProfilePage {
+export class ProfilePage implements OnInit {
 
-    user: User;
+    id: number;
+    user: UserPlayer;
 
     constructor(
-        private params: NavParams
+        private params: NavParams,
+        private dataService: DataService
     ) {
-        this.user = this.params.get('user');
+        this.id = this.params.get('id');
+    }
+
+    ngOnInit() {
+        this.dataService.users.getUserById(this.id)
+            .then(user => {
+                this.user = user;
+            });
     }
 
     private editProfile(): void {
