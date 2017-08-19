@@ -3,7 +3,7 @@ import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular
 
 import { Enviroment } from './Enviroment';
 import { ShareService } from './ShareService';
-import { GamesAPI, UsersAPI } from './api';
+import { GamesAPI, UsersAPI, TeamsAPI } from './api';
 
 import { StoredUser, ApiResponse, UserLoginResponse } from '../models';
 
@@ -18,6 +18,7 @@ export class DataService {
 
     private _games = new GamesAPI(this);
     private _users = new UsersAPI(this);
+    private _teams = new TeamsAPI(this);
 
     get games() {
         return this._games;
@@ -25,6 +26,10 @@ export class DataService {
 
     get users() {
         return this._users;
+    }
+
+    get teams() {
+        return this._teams;
     }
 
     constructor(

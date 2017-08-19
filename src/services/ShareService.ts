@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { User } from '../models/user';
+import { Team } from '../models/teams';
 
 @Injectable()
 export class ShareService {
 
     private authToken: string;
     user: User;
+    myTeams: Team[];
 
     constructor(
         private storage: Storage
@@ -40,5 +42,13 @@ export class ShareService {
     getUser(): User {
         console.log('ShareService getUser user', this.user);
         return this.user;
+    }
+
+    setMyTeams(teams: Team[]) {
+        this.myTeams = teams;
+    }
+
+    getMyTeams(): Team[] {
+        return this.myTeams;
     }
 }

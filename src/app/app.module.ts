@@ -29,6 +29,8 @@ import { ComponentsModule } from '../components/components.module';
 import { GameCardComponent } from '../components/game-card/game-card';
 import { GenderPipe } from '../pipes/gender';
 import { ProfilePage } from '../pages/profile/profile';
+import { MyTeamsPage } from '../pages/teams/my-teams/my-teams';
+import { TeamCardComponent } from '../components/team-card/team-card';
 
 const cloudSettings: CloudSettings = {
     'core': {
@@ -52,7 +54,9 @@ const cloudSettings: CloudSettings = {
         GamesList,
         GameCardComponent,
         ProfilePage,
-        GenderPipe
+        GenderPipe,
+        MyTeamsPage,
+        TeamCardComponent
     ],
     imports: [
         BrowserModule,
@@ -75,7 +79,8 @@ const cloudSettings: CloudSettings = {
         MyGamesInvitations,
         GamesList,
         GameCardComponent,
-        ProfilePage
+        ProfilePage,
+        MyTeamsPage
     ],
     providers: [
         StatusBar,

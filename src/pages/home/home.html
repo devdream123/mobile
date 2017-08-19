@@ -23,8 +23,8 @@
         <span class="rsvp__text">Upcoming <br/> games</span>
     </ion-item>
 
-    <ion-item (click)="goToMyTeams()" tappable *ngIf="myGames" class="rsvp">
-        <span class="rsvp__count">3</span>
+    <ion-item (click)="goToMyTeams()" tappable *ngIf="teams" class="rsvp">
+        <span class="rsvp__count">{{teams.length}}</span>
         <span class="rsvp__text">teams</span>
     </ion-item>
 
