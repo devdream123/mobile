@@ -1,0 +1,11 @@
+<ion-card class="invite">
+    <span tappable (click)="goToTeam($event, teamInvite.id)" class="invite__title">{{teamInvite.name}}</span>
+    <div tappable (click)="goToTeam($event, teamInvite.id)" class="invite__info">
+        <span class="invite__teamType">{{teamInvite.type}}</span>
+        <span class="invite__description">{{teamInvite.info}}</span>
+    </div>
+    <div class="invite__actions">
+        <button (click)="inviteAccepted()" tappable outline ion-button class="invite__actions__accept">Accept</button>
+        <ion-icon (click)="inviteDeclined()" tappable class="invite__actions__decline" name="close"></ion-icon>
+    </div>
+</ion-card>

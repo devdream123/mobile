@@ -1,6 +1,6 @@
 import { DataService } from '../DataService';
 import { RequestMethod } from '@angular/http';
-import { IGamesAPI } from '../../models/response/api_games';
+import { IGamesAPI, IGamesInvitesAPI } from '../../models/response/api_games';
 import { Game, RSVPGame } from '../../models/games';
 
 export class GamesAPI {
@@ -38,8 +38,7 @@ export class GamesAPI {
         return this.api.requestData(RequestMethod.Put, 'games/' + game_id + '/players/' + rsvp_id, {}, { rsvp });
     }
 
-    // todo model for api response
-    public myGamesInvitations(): Promise<any> {
+    public myGamesInvitations(): Promise<IGamesInvitesAPI> {
 
         return this.api.requestData(RequestMethod.Get, 'games/invites', {});
     }

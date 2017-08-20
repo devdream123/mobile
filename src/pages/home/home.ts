@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { DataService } from '../../services';
 import { Game, User } from '../../models';
-import { SingleGamePage, MyGamesList, MyGamesInvitations } from '../games';
+import { SingleGamePage, MyGamesList } from '../games';
 
 import moment from 'moment';
 import { ShareService } from '../../services/ShareService';
@@ -11,6 +11,7 @@ import { ProfilePage } from '../profile/profile';
 import { Team } from '../../models/teams';
 import { ITeamsAPI } from '../../models/response/api_teams';
 import { MyTeamsPage } from '../teams/my-teams/my-teams';
+import { InvitesList } from '../invites/invitesList/invitesList';
 
 @Component({
     selector: 'page-home',
@@ -87,7 +88,7 @@ export class HomePage implements OnInit {
 
     private goToMyInvitations(): void {
 
-        this.navCtrl.push(MyGamesInvitations);
+        this.navCtrl.push(InvitesList);
     }
 
     private goToProfile(): void {

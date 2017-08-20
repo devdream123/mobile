@@ -1,13 +1,13 @@
-import { Team } from './teams';
+import { Team, TeamBaseInfo } from './teams';
 import { Player } from './user';
 
 interface BaseGameInfo {
+    datetime: any; // todo think abt solution Date | string
     id: number;
+    location: GameLocation;
 }
 
 export interface Game extends BaseGameInfo {
-    datetime: any; // todo think abt solution Date | string
-    location: GameLocation;
     description: string;
     duration: any | null;
     name: string | null;
@@ -15,8 +15,6 @@ export interface Game extends BaseGameInfo {
     players: any;
     teams: Team[];
 }
-
-// todo verify models and unify them more
 
 export interface RSVPGame extends Game {
     rsvp: number;
@@ -29,4 +27,12 @@ export interface GameLocation {
     address: string;
     gis: number | null;
     name: string;
+}
+
+export interface GameInvite extends BaseGameInfo {
+    name: string | null;
+    rsvp: number;
+    rsvp_id: number;
+    team: number;
+    teams: TeamBaseInfo[];
 }

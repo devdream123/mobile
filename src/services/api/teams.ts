@@ -1,6 +1,7 @@
 import { DataService } from '../DataService';
 import { RequestMethod } from '@angular/http';
-import { ITeamsAPI } from '../../models/response/api_teams';
+import { ITeamsAPI, ITeamsInvitesAPI } from '../../models/response/api_teams';
+import { Player } from '../../models/user';
 
 export class TeamsAPI {
 
@@ -20,6 +21,14 @@ export class TeamsAPI {
     // todo model for team details
     public getTeamDetails(id: number): Promise<any> {
         return this.api.requestData(RequestMethod.Get, 'teams/' + id, {});
+    }
+
+    public getTeamInvites(): Promise<ITeamsInvitesAPI> {
+        return this.api.requestData(RequestMethod.Get, 'teams/invites', {});
+    }
+
+    public acceptTeamInvite(id: number): Promise<Player> {
+        return this.api.requestData(RequestMethod.Put, 'teams/' + id + '/players', {});
     }
 
 }

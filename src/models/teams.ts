@@ -1,6 +1,6 @@
 import { Manager, Player } from './user';
 
-interface TeamBaseInfo {
+export interface TeamBaseInfo {
     id: number;
     info: string;
     name: string;
@@ -13,7 +13,13 @@ export enum TeamRoles {
     Substitute = 1,
     Inactive = 0,
     Invited = -1,
-    Asked_to_join = -2
+    'Asked to join' = -2
+}
+
+export enum TeamGenderType {
+    Male = 2,
+    Female = 1,
+    Coed = 0
 }
 
 export interface Team extends TeamBaseInfo {
@@ -24,4 +30,13 @@ export interface Team extends TeamBaseInfo {
 export interface TeamDetails extends TeamBaseInfo {
     managers: Manager[];
     players: Player[];
+}
+
+export interface ITeamsInvites {
+    id: number;
+    info: string;
+    name: string;
+    role: number;
+    role_id: number;
+    type: number;
 }

@@ -1,8 +1,9 @@
-my-games-invitations {
+game-invite {
 
     .declaration {
 
         display: flex;
+        justify-content: space-between;
         width: 100%;
         flex-wrap: nowrap;
 
@@ -11,15 +12,7 @@ my-games-invitations {
             color: royalblue;
             display: flex;
             text-transform: uppercase;
+            justify-content: center;
         }
-    }
-
-    .no-more {
-        display: flex;
-        justify-content: center;
-        text-transform: uppercase;
-        width: 100%;
-        padding-top: 10pt;
-        font-size: 2em;
     }
 }

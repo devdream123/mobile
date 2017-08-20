@@ -17,7 +17,8 @@
 
     <ion-row class="user">
         <div class="avatar">
-            <img src="{{user?.img}}" alt="avatar" class="avatar__img">
+            <img *ngIf="user?.img" src="{{user?.img}}" alt="avatar" class="avatar__img">
+            <img *ngIf="!user?.img" src="https://placekitten.com/171/171/" alt="avatar" class="avatar__img">
         </div>
         <span class="user__name">{{user?.first_name}} {{user?.last_name}}</span>
         <span class="user__gender">{{user?.gender | gender}}</span>

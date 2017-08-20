@@ -1,0 +1,38 @@
+team-invite {
+
+    .invite {
+
+        padding: 8pt;
+
+        &__title {
+            padding-bottom: 8pt;
+            display: flex;
+            width: 100%;
+            color: $app-font;
+            font-size: 2em;
+        }
+
+        &__info {
+            padding-bottom: 8pt;
+            color: rgba($app-font, .7);
+        }
+
+        &__actions {
+
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+
+            &__accept {
+
+            }
+
+            &__decline {
+                font-size: 2em;
+                color: royalblue;
+                padding-right: 8pt;
+            }
+        }
+    }
+}

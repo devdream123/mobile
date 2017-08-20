@@ -4,8 +4,12 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-<h1>You havent been invited, YET xD</h1>
+    <h1 *ngIf="!teamInvites">You havent been invited, YET xD</h1>
+
+    <team-invite (statusChanged)="statusChanged($event)" *ngFor="let invite of teamInvites" [teamInvite]="invite"></team-invite>
+
+    <game-invite (rsvpChanged)="rsvpChanged($event)" *ngFor="let game of gameInvites" [gameInvite]="game"></game-invite>
 
 </ion-content>

@@ -1,5 +1,6 @@
 <ion-item (click)="goToProfile(player.id)" tappable class="player">
-    <img class="player__img" src="{{player.img}}" alt="avatar">
+    <img *ngIf="player.img" class="player__img" src="{{player.img}}" alt="avatar">
+    <img *ngIf="!player.img" src="https://placekitten.com/171/171/" alt="avatar" class="player__img">
     <div class="player__info">
         <div class="player__status">
             <span class="player__name">{{player.first_name}} {{player.last_name}}</span>

@@ -10,7 +10,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { MyGamesList, MyGamesInvitations } from '../pages/games';
+import { MyGamesList } from '../pages/games';
 import { LoginPage } from '../pages/login';
 import { InvitesList } from '../pages/invites';
 
@@ -36,6 +36,8 @@ import { TeamRoleCardComponent } from '../components/team-role-card/team-role-ca
 import { PlayerRowComponent } from '../components/player-row/player-row';
 import { SingleGamePage } from '../pages/games/singleGame/singleGame';
 import { TeamRolePipe } from '../pipes/team-role';
+import { TeamInviteComponent } from "../components/team-invite/team-invite";
+import { GameInviteComponent } from '../components/game-invite/game-invite';
 
 const cloudSettings: CloudSettings = {
     'core': {
@@ -55,7 +57,6 @@ const cloudSettings: CloudSettings = {
         LoginPage,
         InvitesList,
         RSVPStatusPipe,
-        MyGamesInvitations,
         GamesList,
         GameCardComponent,
         ProfilePage,
@@ -65,7 +66,9 @@ const cloudSettings: CloudSettings = {
         TeamDetailsPage,
         TeamRoleCardComponent,
         PlayerRowComponent,
-        TeamRolePipe
+        TeamRolePipe,
+        TeamInviteComponent,
+        GameInviteComponent
     ],
     imports: [
         BrowserModule,
@@ -85,7 +88,6 @@ const cloudSettings: CloudSettings = {
         MyGamesList,
         LoginPage,
         InvitesList,
-        MyGamesInvitations,
         GamesList,
         GameCardComponent,
         ProfilePage,

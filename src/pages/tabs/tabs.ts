@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Events, App } from 'ionic-angular';
-import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SingleGamePage } from '../games/singleGame/singleGame';
+import { InvitesList } from '../invites/invitesList/invitesList';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { SingleGamePage } from '../games/singleGame/singleGame';
 export class TabsPage implements OnInit {
 
     tab1Root = HomePage;
-    tab2Root = AboutPage;
+    tab2Root = InvitesList;
     tab3Root = ContactPage;
 
     constructor(
@@ -22,7 +22,6 @@ export class TabsPage implements OnInit {
         private app: App,
         private localNotifications: LocalNotifications
     ) {
-
     }
 
     ngOnInit() {

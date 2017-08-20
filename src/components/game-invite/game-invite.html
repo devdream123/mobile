@@ -1,0 +1,20 @@
+<ion-card tappable class="game">
+    <ion-row class="game__row">
+        <span class="game__status">{{gameInvite.rsvp | rsvpStatus}}</span>
+        <span class="game__text game__text--header">{{gameInvite.teams[0].name || 'Pickup game'}}</span>
+    </ion-row>
+    <ion-row>
+        <span class="game__text">{{gameInvite.datetime | date: 'EEEE hh:mm a'}}</span>
+        <span class="game__text--small">{{gameInvite.datetime | date: 'MMMM dd, y'}}</span>
+    </ion-row>
+    <ion-row>
+        <span class="game__text">{{gameInvite.location.name}}</span>
+        <span class="game__text--small">{{gameInvite.location.address}}</span>
+    </ion-row>
+    <div class="declaration">
+        <ion-item *ngFor="let status of [1,2,0]" (click)="updateRsvp(status, gameInvite)" tappable
+                  class="declaration__option">
+            {{ status | rsvpStatus }}
+        </ion-item>
+    </div>
+</ion-card>
