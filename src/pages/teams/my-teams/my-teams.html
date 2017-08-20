@@ -1,0 +1,28 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Teams</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-segment [(ngModel)]="teamMembership" color="primary" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="asPlayer">
+            As a player
+        </ion-segment-button>
+        <ion-segment-button value="asManager">
+            As a manager
+        </ion-segment-button>
+    </ion-segment>
+
+    <div *ngIf="teamMembership === 'asPlayer'" class="teams">
+        <team-card *ngFor="let team of myTeams" [team]="team"></team-card>
+    </div>
+
+    <div *ngIf="teamMembership === 'asManager'" class="teams">
+        <team-card *ngFor="let team of managedTeams" [team]="team"></team-card>
+    </div>
+</ion-content>

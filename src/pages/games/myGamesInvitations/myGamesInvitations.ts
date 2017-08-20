@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../../../services';
-import { GamesInvitations, RSVPGame } from '../../../models';
+import { RSVPGame } from '../../../models';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @Component({
@@ -11,7 +11,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 
 export class MyGamesInvitations implements OnInit {
 
-    gamesInvitations: GamesInvitations[];
+    gamesInvitations: any[];
     statusSet: boolean = false;
 
     constructor(

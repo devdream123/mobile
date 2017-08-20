@@ -3,13 +3,13 @@ import { NavController } from 'ionic-angular';
 
 import { DataService } from '../../services';
 import { Game, User } from '../../models';
-import { SingleGame, MyGamesList, MyGamesInvitations } from '../games';
+import { SingleGamePage, MyGamesList, MyGamesInvitations } from '../games';
 
 import moment from 'moment';
 import { ShareService } from '../../services/ShareService';
 import { ProfilePage } from '../profile/profile';
 import { Team } from '../../models/teams';
-import { TeamAPI } from '../../models/response/api_teams';
+import { ITeamsAPI } from '../../models/response/api_teams';
 import { MyTeamsPage } from '../teams/my-teams/my-teams';
 
 @Component({
@@ -67,7 +67,7 @@ export class HomePage implements OnInit {
 
     private getMyTeams(): Promise<void> {
         return this.dataService.teams.getMyTeams()
-            .then((res: TeamAPI) => {
+            .then((res: ITeamsAPI) => {
                 console.log('HomePage getMyTeams() teams', res);
                 this.teams = res.results;
                 this.share.setMyTeams(res.results);
@@ -75,7 +75,7 @@ export class HomePage implements OnInit {
     }
 
     private goToGame(id: number): void {
-        this.navCtrl.push(SingleGame, {
+        this.navCtrl.push(SingleGamePage, {
             id
         });
     }

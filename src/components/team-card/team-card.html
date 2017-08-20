@@ -1,0 +1,7 @@
+<ion-card (click)="goToTeamDetails(team.id)" class="team-card" padding>
+
+    <span class="team-card__title">{{team.name}}</span>
+    <span class="team-card__info">{{team.info}}</span>
+    <span class="team-card__role">{{team.role | teamRole}}</span>
+
+</ion-card>

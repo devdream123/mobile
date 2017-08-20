@@ -1,0 +1,44 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{team?.name}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-segment [(ngModel)]="teamActivity" color="primary" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="info">
+            Info
+        </ion-segment-button>
+        <ion-segment-button value="schedule">
+            Schedule
+        </ion-segment-button>
+        <ion-segment-button value="chat">
+            Chat
+        </ion-segment-button>
+    </ion-segment>
+
+    <div *ngIf="teamActivity === 'info'" class="teamActivity">
+        <div class="teamActivity__wrapper">
+            <span class="teamActivity__title">{{team?.name}}</span>
+            <span class="teamActivity__info">{{team?.info}}</span>
+        </div>
+        <ion-card class="teamActivity__card">
+            <span class="teamActivity__card__title">Managers</span>
+            <player-row class="teamActivity__card__player" *ngFor="let manager of team?.managers" [player]="manager"></player-row>
+        </ion-card>
+
+        <ion-card class="teamActivity__card">
+            <span class="teamActivity__card__title">Roster</span>
+            <player-row class="teamActivity__card__player" *ngFor="let player of team?.players" [player]="player"></player-row>
+        </ion-card>
+    </div>
+
+    <div *ngIf="teamActivity === 'schedule'" class="teamActivity">
+    </div>
+
+    <div *ngIf="teamActivity === 'chat'" class="teamActivity">
+    </div>
+</ion-content>

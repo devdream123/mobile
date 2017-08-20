@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { DataService } from '../../services/DataService';
-import { Game } from '../../models/response/api_games';
-import { SingleGame } from '../games/singleGame/singleGame';
+import { SingleGamePage } from '../games/singleGame/singleGame';
 
 @Component({
     selector: 'page-home',
@@ -11,7 +10,7 @@ import { SingleGame } from '../games/singleGame/singleGame';
 })
 export class AboutPage implements OnInit {
 
-    games: Game[] = [];
+    games: any[] = [];
     isLoading: boolean = true;
 
     constructor(
@@ -37,7 +36,7 @@ export class AboutPage implements OnInit {
     }
 
     goToGame(id: number) {
-        this.navCtrl.push(SingleGame, {
+        this.navCtrl.push(SingleGamePage, {
             id
         });
     }

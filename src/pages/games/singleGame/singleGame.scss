@@ -1,38 +1,9 @@
-single-game {
+single-game-page {
 
     .label {
         display: inline-flex;
         align-items: center;
         overflow: visible;
-    }
-
-    .player {
-
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
-
-        &__img {
-            display: flex;
-            height: 3em;
-            width: 3em;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        &__name {
-            padding-left: 10pt;
-            display: flex;
-        }
-
-        &__rsvp {
-            display: flex;
-            flex-grow: 1;
-            justify-content: flex-end;
-            color: royalblue;
-            text-transform: uppercase;
-        }
     }
 
     .status {
@@ -121,5 +92,12 @@ single-game {
 
     .list-ios > .item-block {
         border: none !important;
+    }
+
+    .players-list {
+
+        &__title {
+            width: 100%;
+        }
     }
 }

@@ -1,6 +1,6 @@
 import { Team } from '../teams';
 
-export interface TeamAPI {
+export interface ITeamsAPI {
     count: number;
     next: number | null;
     previous: number | null;

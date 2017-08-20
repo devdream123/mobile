@@ -10,7 +10,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { SingleGame, MyGamesList, MyGamesInvitations } from '../pages/games';
+import { MyGamesList, MyGamesInvitations } from '../pages/games';
 import { LoginPage } from '../pages/login';
 import { InvitesList } from '../pages/invites';
 
@@ -31,6 +31,11 @@ import { GenderPipe } from '../pipes/gender';
 import { ProfilePage } from '../pages/profile/profile';
 import { MyTeamsPage } from '../pages/teams/my-teams/my-teams';
 import { TeamCardComponent } from '../components/team-card/team-card';
+import { TeamDetailsPage } from '../pages/teams/team-details/team-details';
+import { TeamRoleCardComponent } from '../components/team-role-card/team-role-card';
+import { PlayerRowComponent } from '../components/player-row/player-row';
+import { SingleGamePage } from '../pages/games/singleGame/singleGame';
+import { TeamRolePipe } from '../pipes/team-role';
 
 const cloudSettings: CloudSettings = {
     'core': {
@@ -45,7 +50,7 @@ const cloudSettings: CloudSettings = {
         ContactPage,
         HomePage,
         TabsPage,
-        SingleGame,
+        SingleGamePage,
         MyGamesList,
         LoginPage,
         InvitesList,
@@ -56,7 +61,11 @@ const cloudSettings: CloudSettings = {
         ProfilePage,
         GenderPipe,
         MyTeamsPage,
-        TeamCardComponent
+        TeamCardComponent,
+        TeamDetailsPage,
+        TeamRoleCardComponent,
+        PlayerRowComponent,
+        TeamRolePipe
     ],
     imports: [
         BrowserModule,
@@ -72,7 +81,7 @@ const cloudSettings: CloudSettings = {
         ContactPage,
         HomePage,
         TabsPage,
-        SingleGame,
+        SingleGamePage,
         MyGamesList,
         LoginPage,
         InvitesList,
@@ -80,7 +89,8 @@ const cloudSettings: CloudSettings = {
         GamesList,
         GameCardComponent,
         ProfilePage,
-        MyTeamsPage
+        MyTeamsPage,
+        TeamDetailsPage
     ],
     providers: [
         StatusBar,

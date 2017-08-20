@@ -1,0 +1,10 @@
+<ion-item (click)="goToProfile(player.id)" tappable class="player">
+    <img class="player__img" src="{{player.img}}" alt="avatar">
+    <div class="player__info">
+        <div class="player__status">
+            <span class="player__name">{{player.first_name}} {{player.last_name}}</span>
+            <span class="player__rsvp">{{player.rsvp | rsvpStatus}}<ion-icon name="check"></ion-icon></span>
+        </div>
+        <span class="player__role">{{player.role | teamRole}}</span>
+    </div>
+</ion-item>

@@ -1,0 +1,49 @@
+page-team-details {
+
+    .label {
+        display: flex;
+        align-items: center;
+    }
+
+    .teamActivity {
+
+        &__wrapper {
+            padding: 0 8pt;
+            border-bottom: solid 1px rgba(gray, .3);
+        }
+
+        &__title {
+            display: flex;
+            font-size: 2em;
+            justify-content: center;
+            width: 100%;
+            color: $app-font;
+            padding: 8pt 0;
+        }
+
+        &__info {
+            display: flex;
+            justify-content: center;
+            text-align: justify;
+            padding-bottom: 8pt;
+        }
+
+        &__card {
+
+            display: flex;
+            flex-direction: column;
+
+            &__title {
+                padding-left: 16pt;
+                font-size: 2em;
+                padding-top: 8pt;
+                width: 100%;
+            }
+
+            &__player {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

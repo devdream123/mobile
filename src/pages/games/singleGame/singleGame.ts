@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { DataService } from '../../../services';
 import { RSVPGame } from '../../../models';
 
 import moment from 'moment';
 import { ShareService } from '../../../services/ShareService';
-import { User } from '../../../models/user';
-import { ProfilePage } from '../../profile/profile';
+import { SignedPlayer, User } from '../../../models/user';
 
 @Component({
-    selector: 'single-game',
+    selector: 'single-game-page',
     templateUrl: 'singleGame.html'
 })
 
-export class SingleGame implements OnInit {
+export class SingleGamePage implements OnInit {
 
     private id: number;
     game: RSVPGame;
@@ -24,8 +23,7 @@ export class SingleGame implements OnInit {
     constructor(
         private dataService: DataService,
         private navParams: NavParams,
-        private share: ShareService,
-        private navCtrl: NavController
+        private share: ShareService
     ) {
         this.id = this.navParams.get('id');
     }
@@ -39,7 +37,7 @@ export class SingleGame implements OnInit {
             .then(game => {
                 console.log('SingleGame ngOnInit game', game);
                 this.game = game;
-                game.players.find(player => {
+                game.players.find((player: SignedPlayer) => {
                     console.log('SingleGame ngOnInit player, user', player, this.user);
                     if (player.id === this.user.id) {
                         console.log('SingleGame ngOnInit player rsvp', player.rsvp);
@@ -51,7 +49,6 @@ export class SingleGame implements OnInit {
                 this.game.datetime = moment(gameTime).format('LLLL');
             });
     }
-
 
     statusChanged(e) {
         if (!this.game) {
@@ -77,9 +74,5 @@ export class SingleGame implements OnInit {
                 .then(() => this.game.players[index].rsvp = Number(e));
         }
 
-    }
-
-    private goToProfile(id: number): void {
-        this.navCtrl.push(ProfilePage, {id})
     }
 }

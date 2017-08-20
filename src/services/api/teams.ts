@@ -1,6 +1,6 @@
 import { DataService } from '../DataService';
 import { RequestMethod } from '@angular/http';
-import { TeamAPI } from '../../models/response/api_teams';
+import { ITeamsAPI } from '../../models/response/api_teams';
 
 export class TeamsAPI {
 
@@ -9,8 +9,17 @@ export class TeamsAPI {
     ) {
     }
 
-    public getMyTeams(): Promise<TeamAPI> {
+    public getMyTeams(): Promise<ITeamsAPI> {
         return this.api.requestData(RequestMethod.Get, 'teams/my', {});
+    }
+
+    public getManagedTeams(): Promise<ITeamsAPI> {
+        return this.api.requestData(RequestMethod.Get, 'teams/managed', {});
+    }
+
+    // todo model for team details
+    public getTeamDetails(id: number): Promise<any> {
+        return this.api.requestData(RequestMethod.Get, 'teams/' + id, {});
     }
 
 }

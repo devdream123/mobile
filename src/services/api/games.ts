@@ -1,7 +1,7 @@
 import { DataService } from '../DataService';
 import { RequestMethod } from '@angular/http';
-
-import { GamesList } from '../../models';
+import { IGamesAPI } from '../../models/response/api_games';
+import { Game, RSVPGame } from '../../models/games';
 
 export class GamesAPI {
 
@@ -9,19 +9,19 @@ export class GamesAPI {
         private api: DataService
     ) { }
 
-    public getAll(): Promise<GamesList> {
+    public getAll(): Promise<IGamesAPI> {
 
         return this.api.requestData(RequestMethod.Get, '/games', {});
     }
 
     // todo model for my rsvp games
-    public getMy(): Promise<any> {
+    public getMy(): Promise<IGamesAPI> {
 
         return this.api.requestData(RequestMethod.Get, 'games/my', {});
     }
 
     // todo model for specific game
-    public getSingle(id: number): Promise<any> {
+    public getSingle(id: number): Promise<RSVPGame> {
 
         return this.api.requestData(RequestMethod.Get, 'games/' + id, {});
     }

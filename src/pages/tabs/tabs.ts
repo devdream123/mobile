@@ -5,9 +5,8 @@ import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { SingleGame } from '../games/singleGame/singleGame';
+import { SingleGamePage } from '../games/singleGame/singleGame';
 
-// import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 @Component({
     templateUrl: 'tabs.html'
@@ -52,7 +51,7 @@ export class TabsPage implements OnInit {
             let nav = this.app.getActiveNav();
 
             if (data.game_id) {
-                nav.push(SingleGame, {
+                nav.push(SingleGamePage, {
                     id: data.game_id
                 });
             }
