@@ -55,7 +55,7 @@ export class InvitesList implements OnInit {
         console.log('InvitesList statusChanged() ev', ev);
         this.teamInvites.filter((team, i) => {
             if (team.id === ev.id) {
-                this.gameInvites.splice(i, 1);
+                this.teamInvites.splice(i, 1);
             }
         });
     }

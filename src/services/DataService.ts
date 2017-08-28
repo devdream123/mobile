@@ -62,7 +62,6 @@ export class DataService {
             headers.append('Authorization', 'JWT ' + token);
         }
 
-        console.log('Prepared headers: ', headers);
         return headers;
     }
 

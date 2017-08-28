@@ -9,7 +9,7 @@
     <ion-spinner class="spinner" icon="spiral" *ngIf="!user"></ion-spinner>
 
     <ion-item tappable class="me" (click)="goToProfile()">
-        <img class="me__img" src="{{user?.img}}" alt="Me">
+        <img  class="me__img" src="{{user?.img || 'http://via.placeholder.com/100x100'}}" alt="Me">
         <span class="me__name">{{user?.first_name}} {{user?.last_name}}</span>
     </ion-item>
 

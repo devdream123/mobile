@@ -11,14 +11,12 @@
 <ion-content>
 
     <ion-row class="header">
-        <img *ngIf="user && user?.cover" src="{{user?.cover}}" alt="background" class="header__bg-img">
-        <img *ngIf="!user?.cover" src="https://placekitten.com/611/311/" alt="background">
+        <img src="{{user?.cover || 'http://via.placeholder.com/640x480'}}" alt="background" class="header__bg-img">
     </ion-row>
 
     <ion-row class="user">
         <div class="avatar">
-            <img *ngIf="user?.img" src="{{user?.img}}" alt="avatar" class="avatar__img">
-            <img *ngIf="!user?.img" src="https://placekitten.com/171/171/" alt="avatar" class="avatar__img">
+            <img src="{{user?.img  || 'http://via.placeholder.com/100x100'}}" alt="avatar" class="avatar__img">
         </div>
         <span class="user__name">{{user?.first_name}} {{user?.last_name}}</span>
         <span class="user__gender">{{user?.gender | gender}}</span>

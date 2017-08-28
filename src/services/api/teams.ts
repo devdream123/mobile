@@ -27,8 +27,11 @@ export class TeamsAPI {
         return this.api.requestData(RequestMethod.Get, 'teams/invites', {});
     }
 
-    public acceptTeamInvite(id: number): Promise<Player> {
-        return this.api.requestData(RequestMethod.Put, 'teams/' + id + '/players', {});
+    public acceptTeamInvite(teamId: number, roleId: number, role: number): Promise<any> {
+        return this.api.requestData(RequestMethod.Put, 'teams/' + teamId + '/players/' + roleId, {}, {role});
     }
 
+    public rejectTeamInvite(teamId: number, roleId: number) {
+        return this.api.requestData(RequestMethod.Delete, 'teams/' + teamId + '/players/' + roleId, {});
+    }
 }

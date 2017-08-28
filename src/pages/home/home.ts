@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { DataService } from '../../services';
@@ -17,7 +17,7 @@ import { InvitesList } from '../invites/invitesList/invitesList';
     selector: 'page-home',
     templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
 
     games: Game[] = [];
@@ -27,6 +27,7 @@ export class HomePage implements OnInit {
     RSVPamount: number;
     teams: Team[];
 
+
     constructor(
         private navCtrl: NavController,
         private dataService: DataService,
@@ -35,10 +36,9 @@ export class HomePage implements OnInit {
 
     }
 
-    ngOnInit() {
-        this.getMe()
-            .then(() => this.getMyGames());
-
+    ionViewWillEnter() {
+        this.getMe();
+        this.getMyGames();
         this.getMyTeams();
     }
 
