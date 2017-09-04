@@ -38,6 +38,7 @@ import { SingleGamePage } from '../pages/games/singleGame/singleGame';
 import { TeamRolePipe } from '../pipes/team-role';
 import { TeamInviteComponent } from "../components/team-invite/team-invite";
 import { GameInviteComponent } from '../components/game-invite/game-invite';
+import { MapPage } from '../pages/map/map';
 
 const cloudSettings: CloudSettings = {
     'core': {
@@ -68,7 +69,8 @@ const cloudSettings: CloudSettings = {
         PlayerRowComponent,
         TeamRolePipe,
         TeamInviteComponent,
-        GameInviteComponent
+        GameInviteComponent,
+        MapPage
     ],
     imports: [
         BrowserModule,
@@ -92,7 +94,8 @@ const cloudSettings: CloudSettings = {
         GameCardComponent,
         ProfilePage,
         MyTeamsPage,
-        TeamDetailsPage
+        TeamDetailsPage,
+        MapPage
     ],
     providers: [
         StatusBar,

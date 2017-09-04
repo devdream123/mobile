@@ -25,7 +25,9 @@ export interface RSVPGame extends Game {
 export interface GameLocation {
     id: number;
     address: string;
-    gis: number | null;
+    gis: {
+        coordinates: number[];
+    };
     name: string;
 }
 

@@ -7,7 +7,8 @@ export class GamesAPI {
 
     constructor(
         private api: DataService
-    ) { }
+    ) {
+    }
 
     public getAll(): Promise<IGamesAPI> {
 
@@ -35,11 +36,15 @@ export class GamesAPI {
     // todo model for api response
     public updateRSVP(game_id: number, rsvp_id: number, rsvp: number): Promise<any> {
 
-        return this.api.requestData(RequestMethod.Put, 'games/' + game_id + '/players/' + rsvp_id, {}, { rsvp });
+        return this.api.requestData(RequestMethod.Put, 'games/' + game_id + '/players/' + rsvp_id, {}, {rsvp});
     }
 
     public myGamesInvitations(): Promise<IGamesInvitesAPI> {
 
         return this.api.requestData(RequestMethod.Get, 'games/invites', {});
+    }
+
+    public getGamesInBoundaries(bounds: any): Promise<Game[]> {
+        return this.api.requestDataCustomParams(RequestMethod.Get, 'api/' + 'games/?in_bbox=' + bounds[0] + ',' + bounds[1] + ',' + bounds[2] + ',' + bounds[3]);
     }
 }

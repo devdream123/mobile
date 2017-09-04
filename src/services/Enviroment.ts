@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 
 export class Enviroment {
-    private api = {
+    api = {
         dev: '/api/'
     };
 

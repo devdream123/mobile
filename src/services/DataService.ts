@@ -104,6 +104,25 @@ export class DataService {
             .then(res => res.json())
     }
 
+    public requestDataCustomParams<T>(
+        method: RequestMethod,
+        url: string,
+        data: Object = null,
+        withToken: boolean = true
+    ): Promise<T> {
+
+        let options = new RequestOptions({
+            method,
+            headers: this.createHeaders(withToken),
+            body: data ? JSON.stringify(data) : undefined
+        });
+
+        return this.http.request(url, options)
+            .toPromise()
+            .catch(err => this.handleError(err))
+            .then(res => res.json())
+    }
+
     /**
      * Universal GET data method
      */

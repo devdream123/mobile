@@ -6,6 +6,7 @@ import { HomePage } from '../home/home';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SingleGamePage } from '../games/singleGame/singleGame';
 import { InvitesList } from '../invites/invitesList/invitesList';
+import { MapPage } from '../map/map';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class TabsPage implements OnInit {
     tab1Root = HomePage;
     tab2Root = InvitesList;
     tab3Root = ContactPage;
+    tab4Root = MapPage;
 
     constructor(
         private events: Events,
