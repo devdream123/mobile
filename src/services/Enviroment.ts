@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
 
 export class Enviroment {
     api = {
-        dev: '/api/'
+        dev: 'https://dev.goodfoot.club/api/'
     };
 
-    // for device add https://dev.goodfoot.club/api
+    // for device add https://dev.goodfoot.club/api/
     // for browser development /api/
     // "proxies": [{
     //     "path": "/api",
